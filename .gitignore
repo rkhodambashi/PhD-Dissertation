@@ -25,6 +25,9 @@ Thumbs.db
 *.synctex
 *.toc
 *.tps
+*.blg
+*.lot
+PhD Dissertation.bbl
 [Bb]in
 [Dd]ebug*/
 *.lib
