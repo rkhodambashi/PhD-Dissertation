@@ -35,10 +35,10 @@
 %\begin{titlepage}
 	%\maketitle
 %\end{titlepage}
-\doublespace
+ \doublespace
 \include{abstract}
-\dedicationpage{\\Enter content here.}
-\acknowledgementpage{}
+\dedicationpage{Dedication.}
+\acknowledgementpage{acknowledgement}
 %\include{ack}
 \tableofcontents
 % This puts the word "Page" right justified above everything else.
@@ -62,11 +62,11 @@
 \newpage
 \addcontentsline{toc}{part}{LIST OF SYMBOLS}
 \clearpage
-\symbolspage{}
+\symbolspage{symbols}
 \addcontentsline{toc}{part}{PREFACE}
 \clearpage
 \addtocontents{toc}{CHAPTER \par}					
-\prefacepage{\\Enter content here.}
+\prefacepage{Preface.}
 
 % This gets the headers for the LOF right on the first page.  Subsequent pages
 % are handled by the fancyhdr code in the asudis.sty file.
@@ -75,12 +75,14 @@
 %-----------------------body
 \doublespace
 \pagenumbering{arabic}
-\include{chapter1}
-\include{chapter2}
-\include{chapter3}
-\include{chapter4}
-\include{chapter5}
-\include{chapter6}
+%\include{chapter1}
+%\include{chapter2}
+\include{SVAs}
+%\include{heterogeneous}
+%\include{control}
+%\include{untetheredWalker}
+%\include{chapter7}}
+
 %-----------------------back matter
 {\singlespace
 % Making the references a "part" rather than a chapter gets it indented at
@@ -92,8 +94,8 @@
 \renewcommand{\chaptername}{APPENDIX}
 \addtocontents{toc}{APPENDIX \par}
 \appendix
-\include{appendix1}
+\include{appendix}
 \addcontentsline{toc}{part}{BIOGRAPHICAL SKETCH}
-\biographicalpage{\\Enter content here.}
+\biographicalpage{Enter content here.}
 \include{vita}
 \end{document}

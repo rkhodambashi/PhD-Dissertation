@@ -27,6 +27,7 @@ Thumbs.db
 *.tps
 *.blg
 *.lot
+*.docx
 PhD Dissertation.bbl
 [Bb]in
 [Dd]ebug*/
@@ -39,3 +40,4 @@ _ReSharper*/
 .vs/
 #Nuget packages folder
 packages/
+backup/
