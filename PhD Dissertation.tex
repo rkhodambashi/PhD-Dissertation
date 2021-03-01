@@ -3,7 +3,7 @@
 \input{Preamble/preamble}
 %\input{thesis-info}
 
-%\usepackage{natbib}
+\usepackage{natbib}
 %\usepackage{geometry}
 %%\usepackage{fancyheadings} fancyheadings is obsolete: replaced by fancyhdr. JL
 %\usepackage{fancyhdr}
@@ -62,18 +62,18 @@
 \newpage
 \addcontentsline{toc}{part}{LIST OF SYMBOLS}
 \clearpage
-\symbolspage{symbols}
+%\symbolspage{symbols}
 \addcontentsline{toc}{part}{PREFACE}
 \clearpage
 \addtocontents{toc}{CHAPTER \par}					
-\prefacepage{Preface.}
+%\prefacepage{Preface.}
 
 % This gets the headers for the LOF right on the first page.  Subsequent pages
 % are handled by the fancyhdr code in the asudis.sty file.
 
 
 %-----------------------body
-\doublespace
+{\doublespace
 \pagenumbering{arabic}
 %\include{chapter1}
 %\include{chapter2}
@@ -82,6 +82,7 @@
 %\include{control}
 %\include{untetheredWalker}
 %\include{chapter7}}
+}
 
 %-----------------------back matter
 {\singlespace
@@ -89,13 +90,13 @@
 % level -1 according to the chart: top of page 4 of the document at
 % ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/tocloft/tocloft.pdf
 \addcontentsline{toc}{part}{REFERENCES}
-\bibliographystyle{IEEEtran}
-\bibliography{dis}}
-\renewcommand{\chaptername}{APPENDIX}
+\bibliographystyle{asudis}
+\bibliography{allTogether}}
+%\renewcommand{\chaptername}{APPENDIX}
 \addtocontents{toc}{APPENDIX \par}
-\appendix
-\include{appendix}
+%\appendix
+%\include{appendix}
 \addcontentsline{toc}{part}{BIOGRAPHICAL SKETCH}
-\biographicalpage{Enter content here.}
+%\biographicalpage{Enter content here.}
 \include{vita}
 \end{document}

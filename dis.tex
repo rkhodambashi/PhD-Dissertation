@@ -1,8 +1,6 @@
-
 \documentclass[12pt,letterpaper]{report}
 \usepackage{natbib}
 \usepackage{geometry}
-%\usepackage{fancyheadings} fancyheadings is obsolete: replaced by fancyhdr. JL
 \usepackage{fancyhdr}
 \usepackage{afterpage}
 \usepackage{graphicx}
@@ -10,23 +8,30 @@
 \usepackage{dcolumn,array}
 \usepackage{tocloft}
 \usepackage{asudis}
-		
+\usepackage[pageanchor=true,plainpages=false,pdfpagelabels,bookmarks,bookmarksnumbered]{hyperref}
+
 \begin{document}
 %-----------------------front matter
 \pagenumbering{roman}
-\title{Shape Morphing Material}
-\author{Roozbeh Khodambashi Emami}
+\title{Your Title Goes Here}
+\author{Your name}
 \degreeName{Doctor of Philosophy}
-\defensemonth{August}
-\gradmonth{December}
-\gradyear{2021}
-\chair{Daniel Aukes, Chair \\ Thomas Sugar\\ Chango Nam}		
+\paperType{Dissertation}
+\defensemonth{Some month}
+\defenseyear{Some year}
+\gradmonth{Graduation month}
+\gradyear{Graduation year}
+\chair{Your chair}
+\memberOne{Your first member}
+\memberTwo{Your second member}
+\memberThree{Your third member}
+\memberFour{Your fourth member}
+
 \maketitle
 \doublespace
 \include{abstract}
-\dedicationpage{\\Enter content here.}
-\acknowledgementpage{}
-%\include{ack}
+\dedicationpage{}
+\include{ack}
 \tableofcontents
 % This puts the word "Page" right justified above everything else.
 \addtocontents{toc}{~\hfill Page\par}
@@ -36,29 +41,20 @@
 % Making the LOT and LOF "parts" rather than chapters gets them indented at
 % level -1 according to the chart: top of page 4 of the document at
 % ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/tocloft/tocloft.pdf
-
+\addcontentsline{toc}{part}{LIST OF TABLES}
+\renewcommand{\cftlabel}{Table}
+\listoftables
 % This gets the headers for the LOT right on the first page.  Subsequent pages
 % are handled by the fancyhdr code in the asudis.sty file.
-\addcontentsline{toc}{part}{LIST OF TABLES}
-\listoftables
 \addtocontents{lot}{Table~\hfill Page \par}
 \newpage
 \addcontentsline{toc}{part}{LIST OF FIGURES}
-\listoffigures
-\addtocontents{lof}{Figure~\hfill Page \par}
-\newpage
-\addcontentsline{toc}{part}{LIST OF SYMBOLS}
-\clearpage
-\symbolspage{}
-\addcontentsline{toc}{part}{PREFACE}
-\clearpage
-\addtocontents{toc}{CHAPTER \par}					
-\prefacepage{\\Enter content here.}
-
+\addtocontents{toc}{CHAPTER \par}
+\renewcommand{\cftlabel}{Figure}
 % This gets the headers for the LOF right on the first page.  Subsequent pages
 % are handled by the fancyhdr code in the asudis.sty file.
-
-
+\addtocontents{lof}{Figure~\hfill Page \par}
+\listoffigures
 %-----------------------body
 \doublespace
 \pagenumbering{arabic}
@@ -80,7 +76,5 @@
 \addtocontents{toc}{APPENDIX \par}
 \appendix
 \include{appendix1}
-\addcontentsline{toc}{part}{BIOGRAPHICAL SKETCH}
-\biographicalpage{\\Enter content here.}
 \include{vita}
 \end{document}
