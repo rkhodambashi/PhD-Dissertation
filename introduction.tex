@@ -1,4 +1,4 @@
-\graphicspath{Images/intro/}
+\graphicspath{{Images/intro/}}
 \chapter{introduction}
 \label{chap:intro}
 
@@ -8,7 +8,22 @@
 %\else
     %\graphicspath{{Chapter1/Figs/Vector/}{Chapter1/Figs/}}
 %\fi
-Traditionally, robots are made of rigid materials such as steel. Rigidity enables the robots to perform repeated tasks with high speed and precision. The downside is that they are usually designed for a specific task. Biological organisms on the other hand, can perform a wide range of tasks but with lower precision and speed. Therefore, scientists have been inclined towards using soft materials in robots in order to equip them with some of the features seen in soft living organisms. In this chapter, rigid robots are contrasted against soft living organisms in terms of their capabilities. Then some challenges are listed and the ones addressed by this thesis are discussed. 
+Traditionally, robots are made of rigid materials such as steel. Rigidity enables the robots to perform repeated tasks with high speed and precision. Rigid robots are usually designed for a specific task and they are therefore, not suitable if there is a change in the working conditions. Biological organisms on the other hand, can perform a much wider range of tasks, although with lower precision and speed. Therefore, scientists have been inclined towards using soft materials in robots in order to make them more similar to soft living organisms in terms of adaptability. Figure~\subfigref{fig:venn}{a} is an example of a soft robot that can perform a task better than rigid robots [].
+
+Untethered robots are a class of robots that can function independently without any connection to external power supplies or other equipment. Therefore, untethered robots can be used as autonomous mobile robots. [] can be considered as examples of untethered robots as can be seen in Figure~\subfigref{fig:venn}{b}. 
+
+Miniature robots have application in exploring tight spaces such as inside human body. Since miniature robots use less material, and their fabrication methods are less costly, they can be manufactured in large scale and be used in swarm robotics. Figure~\subfigref{fig:venn}{c} shows an example of a miniature robot. 
+
+The mentioned three categories of robots can be combined to make robots that have advantages of both categories. Figure~\subfigref{fig:venn}{d,e} are examples of such robots. Finally, there are miniature, untethered soft robots that take advantage of all categories and are the focus of this dissertation as shown in Figure~\subfigref{fig:venn}{f}.
+
+%In this chapter, the reasons that justify the use of soft robots are discussed. Then the limitations of current soft robot technologies are presented, followed by an overview of the problems that are addressed by this thesis. 
+
+\begin{figure*}[t]
+      \centering
+      \includegraphics[width=\textwidth]{venn.pdf}
+      \caption{Classification of robots. a) soft robot []. b) Miniature robot [] c) Untethered robot [] d) Miniature soft robot [] e) Untethered soft robot [] f) Miniature untethered soft robot []}
+      \label{fig:venn}
+\end{figure*}
 
 \section{Soft Robotics as an Emerging Field}
 \label{sec:emerging}
@@ -16,22 +31,33 @@ Traditionally, robots are made of rigid materials such as steel. Rigidity enable
 Majority of biological organisms contain soft tissue. The soft tissue brings some advantages to these organisms. Octopus is the most widely used source of inspiration for soft robotic research. Octopuses can deform their body and pass through small openings. Therefore, shape morphing is one of the key advantages of soft organisms. Octopuses can also soften their arm as they wrap it around a bottle cap and stiffen their arms for a tight grip as they turn the cap to open it as shown in Fig. Variable stiffness is therefore, another aspect of soft organisms. Human hand is another example which can demonstrate some of the advantages of compliant materials. Human hand can grasp objects with a wide range of shapes and surface roughness without slipping because the soft tissue passively conforms to different shapes (Fig). Human hand can also absorb energy from an impact such as catching a baseball, preventing any damages to the hand. Impact tolerance is another key advantages of soft bodied organisms. The ability to absorb the impact energy also protects the surrounding objects and humans in case of a collision. This brings up safety as another important feature of compliance present in soft bodied animals. The advantages of soft animals are summarized in Table. Inspired by biology, soft robot developers try to utilize the advantages inherent in soft, compliant matter to achieve safer interactions around humans or more robust locomotion and manipulation in unstructured environments~\cite{martinez2013robotic,laschi2012soft,tolley2014resilient,bilodeau2015monolithic}.
 
 \section{State of the Art in Soft Robotics}
-While traditionally robots were unaware of their surroundings and operated based on a prescribed set of instructions, recent advances in sensor technologies have paved the road to more autonomous robots. Therefore, in addition to actuators, sensors and computers have also become and integral part of the soft robots. For a soft robot, ideally all these components should be soft. Here, the state of the art technology in each category is reviewed with a special attention paid to the soft actuators which is the focus of this dissertation. Soft robots are categorized based on many different features. Here, we focus on miniature and untethered robot categorization to stay focused on the topic of this thesis. Since manufacturing is part of the contribution of this thesis, a brief survey of the manufacturing techniques is also presented.
+Traditionally, robots were made to be stationary. They were unaware of their surroundings and operated based on a prescribed set of instructions. Recent advances in sensor technologies have paved the road to mobile autonomous robots which here, are categorized as untethered robots. Therefore, in addition to soft actuators, sensors and computers are also an integral part of any untethered robotic system. For a soft robot, ideally all these components should be soft. Here, the state of the art technology in each category is reviewed with a special attention paid to the soft actuators which is the focus of this dissertation. 
+%Soft robots are categorized based on many different features. Here, we focus on miniature and untethered robot categorization to stay focused on the topic of this thesis. Since manufacturing is part of the contribution of this thesis, a brief survey of the manufacturing techniques is also presented.
 %\subsection{Components of a Soft Robot}
 \subsection{Soft Sensors}
+The research on soft sensors focuses mainly on the stretchable sensors for wearable electronics []. Since these sensors have desirable characteristics, researchers have started to use these sensors in soft robots. Sensors based on liquid metals have particularly been successfully implemented to measure the strain in soft pneumatic actuators []. Other sensor technologies are piezoresistive, capacitive, and conductive polymers []. Majority of these sensors work based on the change in resistance of the material when they undergo strain. 
 \subsection{Soft Computers}
+Traditionally,  majority of the computations happen on microcontrollers made of hard materials. This is unavoidable and is one of the major limiting factors in the development of entirely soft robots. Soft computers are in their incipient stage. They are based on pneumatic circuits and can perform simple logic functions. Another research direction is the brain-machine interface which tries to use the signals from  brain in human or other animals to control the robots []. This area also needs a lot of development before it can be successfully implemented in the structure of soft robots. 
 \subsection{Soft Actuators}
-Soft pneumatic actuators (SPAs) \cite{Gorissen2017, branyan2017soft} are the most widely used category in soft robotics. SPAs use passive materials such as silicone and rely on rigid components such as motors and pumps that are difficult to downscale and therefore, manufacturing small-scale soft actuators which have applications as envisioned by \cite{hines2017soft} has remained a bottleneck in the development of miniaturized soft robots \cite{majidi2019soft}. 
+Actuation is the core of a robot and as such, there is a larger amount of research on soft actuators as compared to soft sensors and computers. Soft pneumatic actuators (SPAs) \cite{Gorissen2017, branyan2017soft} are the most widely used category of actuators in soft robotics. They are based on a chamber made of soft materials which is pressurized using fluids. The chamber deforms as a result and produce motions such as bending, elongation or twisting. SPAs have high power to weight ratio and have relatively fast response.  Another class of actuators use active materials that undergo a strain based on a signal. This class includes shape memory alloys (SMAs) [], dielectric elastomer actuators (DEAs) [], liquid crystal elastomers (LCEs) [], and stimuli-responsive hydrogels []. 
+ 
 \subsection{Untethered Soft Robots}
+For functioning as mobile robots, the essential accessories such as pumps or power supplies need to be embedded in the robot itself. These robots fall under the category of untethered soft robots [].  
 \subsection{Miniature Soft Robots}
+Miniature robots have dimensions under...and have a low load carrying capacity. These robots have applications where small loads need to be applied, in working with delicate objects, or in tight environments such as inside human body. 
 \subsection{Miniature Untethered Soft Robots}
-\subsection{Soft Robot Manufacturing Techniques}
-\subsubsection{Molding}
-\subsubsection{3D Printing}
-\section{Challenges Ahead}
+
+%\subsection{Soft Robot Manufacturing Techniques}
+%\subsubsection{Molding}
+%\subsubsection{3D Printing}
+\section{Challenges Ahead}.
+Initially, the focus of soft robotics was to find manufacturing methods for SPAs and assemble them into functioning prototypes. These robots were made for tasks such as grasping or used as stationary continuum manipulators. In these applications, the size and weight of the accessories is less important because the accessories are located near the robot and does not have to be carried by the robot. 
 \subsection{Miniaturization Challenges}
+SPAs use passive materials such as silicone and rely on rigid components such as motors and pumps that are difficult to downscale and therefore, manufacturing small-scale soft actuators which have applications as envisioned by \cite{hines2017soft} has remained a bottleneck in the development of miniaturized soft robots \cite{majidi2019soft}. This category of soft robots are least explored due to complicated materials and fabricating processes.  
 \subsection{Manufacturing Challenges}
+
 \section{Contributions of this Dissertation}
+
 \subsection{Broader Impact}
 \subsubsection{Scientific}
 Current soft actuators rely on additional hardware such as pumps, high voltage supplies, light generation sources and magnetic field generators for their operation. These components resist miniaturization and embedding them into small-scale soft robots would be challenging. This limits their mobile applications especially in hyper-redundant robots where a high number of actuators are needed. On the other hand, our developed SVAs weigh only 100 mg and require small footprint microcontrollers for their operation which can be embedded in the robotic system. 
@@ -39,6 +65,16 @@ Current soft actuators rely on additional hardware such as pumps, high voltage s
 Soft robots are intrinsically safe around humans. This can help bring robots to daily life applications such as household robots and assistant robots for elderly people. Also, our soft robots can operate underwater due to hydrogel compatibility with moist environments. A swarm of soft robots can be used for underwater exploration and data collection and help monitor the climate change through recording the water current temperatures over long period of time.
 
 \subsection{Dissertation Outline}
+The following chapters discuss the innovations in materials science and manufacturing methods that lead to the development of miniature untethered soft robots.\\ 
+\textbf{Chapter~\ref{chap:SVAs}: Soft Voxel Actuators: Hydrogel Building Blocks for Bottom-up Assembly of Soft Robots}\\
+This chapter discusses the recipe for preparing temperature-responisve hydrogels. Improvements have been made in the synthesis technique such that it is more accessible to robotic researchers who have less access to material processing facilities. In addition, this recipe results in hydrogels with fast response, solving a challenge that has limited the use of hydrogels in soft robotics. Next, building blocks called soft voxel actuators (SVAs) are introduced that facilitate the manufacturing of soft robots through a bottom up assembly approach. Both the hydrogel and SVAs are characterized in-depth in terms of material properties and actuation properties.
+  
+\textbf{Chapter~\ref{chap:heterogeneous}: Heterogeneous hydrogel structures as Miniature Hyper-redundant Soft Manipulators}\\
+This chapter is case study I of the application of SVAs and is focused around miniaturizing soft robots without loosing their functionality as a result of reducing the number of degrees of freedom. Hyper-redundant miniature soft robotic manipulators are developed. It is shown that the use of SVAs facilitates the development of such robots. These robots are able to work in unstructured environments where the working conditions might change. This manipulator has 16 actuators in a ... footprint which is the highest reported number of degrees of freedom in a miniature robot of this dimension.
 
+\textbf{Chapter~\ref{chap:untetheredWalker}: Miniature Untethered Underwater Walking Robot}\\
+This chapter is case study II of the application of SVAs and is focused around the development of untethered miniature robots. It is demonstrated that the use of SVAs can significantly reduce the weight and size of the robots. These robots are fully untethered which means all the electronics and the power source is included in the robot. 
+
+\textbf{Chapter~\ref{chap:control}: Tracking Control of a Miniature 2-DOF Manipulator with Hydrogel Actuators}
 
 
