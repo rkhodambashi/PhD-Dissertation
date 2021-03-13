@@ -18,7 +18,7 @@
 %-----------------------front matter
 \pagenumbering{roman}
 %\title{Materials and Maufacturing Methods for Developing Miniature Untethered Soft Robots}
-\title{Soft Actuators for Miniature and Untethered Soft Robots Using Stimuli-responsive Hdrogels}
+\title{Soft Actuators for Miniature and Untethered Soft Robots Using Stimuli-responsive Hydrogels}
 \author{Roozbeh Khodambashi Emami}
 \degreeName{Doctor of Philosophy}
 \paperType{Dissertation}
@@ -80,7 +80,7 @@
 \include{SVAs}
 \include{heterogeneous}
 \include{untetheredWalker}
-%\include{control}
+\include{conclusions}
 
 %\include{chapter7}}
 
@@ -94,13 +94,22 @@
 \bibliographystyle{ieeetran}
 \bibliography{C:/Users/rkhodamb/Documents/library}}
 %\bibliography{allTogether}}
-
 \renewcommand{\chaptername}{APPENDIX}
 \addtocontents{toc}{APPENDIX \par}
 \appendix
 \doublespace
 \include{appendix}
-\addcontentsline{toc}{part}{BIOGRAPHICAL SKETCH}
-%\biographicalpage{Enter content here.}
+\setcounter{chapter}{1}%
+\setcounter{section}{1}%
 \include{vita}
+
+%\addcontentsline{toc}{part}{BIOGRAPHICAL SKETCH}
+%\biographicalpage{Enter content here.}
+%\renewcommand{\chaptername}{CURRICULUM VITAE}
+%\appendix
+%\renewcommand{\chaptername}{APPENDIX}
+%\addtocontents{toc}{APPENDIX \par}
+%\appendix{b}
+
+
 \end{document}
