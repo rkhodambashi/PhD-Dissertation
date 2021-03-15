@@ -18,7 +18,7 @@
 %-----------------------front matter
 \pagenumbering{roman}
 %\title{Materials and Maufacturing Methods for Developing Miniature Untethered Soft Robots}
-\title{Soft Actuators for Miniature and Untethered Soft Robots Using Stimuli-responsive Hydrogels}
+\title{Soft Actuators for Miniature and Untethered Soft Robots\\ \ \\ Using Stimuli-responsive Hydrogels}
 \author{Roozbeh Khodambashi Emami}
 \degreeName{Doctor of Philosophy}
 \paperType{Dissertation}
@@ -30,7 +30,6 @@
 %\chair{Daniel Aukes, Chair \\ Thomas Sugar\\ Chango Nam}		
 \memberOne{Thomas G. Sugar}
 \memberTwo{Changho Nam}
-
 \maketitle
 %\begin{titlepage}
 	%\maketitle
@@ -52,24 +51,50 @@
 
 % This gets the headers for the LOT right on the first page.  Subsequent pages
 % are handled by the fancyhdr code in the asudis.sty file.
-\addcontentsline{toc}{part}{LIST OF TABLES}
-\listoftables
-\addtocontents{lot}{Table~\hfill Page \par}
-\newpage
-\addcontentsline{toc}{part}{LIST OF FIGURES}
-\listoffigures
-\addtocontents{lof}{Figure~\hfill Page \par}
-\newpage
-\addcontentsline{toc}{part}{LIST OF SYMBOLS}
-\clearpage
-%\symbolspage{symbols}
-\addcontentsline{toc}{part}{PREFACE}
-\clearpage
-\addtocontents{toc}{CHAPTER \par}					
-%\prefacepage{Preface.}
+%\addcontentsline{toc}{part}{LIST OF TABLES}
+%\listoftables
+%\addtocontents{lot}{Table~\hfill Page \par}
+%\newpage
+%
+%\addcontentsline{toc}{part}{LIST OF FIGURES}
+%\addtocontents{lof}{Figure~\hfill Page \par}
+%\listoffigures
+%\newpage
+%
+%\addcontentsline{toc}{part}{LIST OF SYMBOLS}
+%\clearpage
+%%\symbolspage{symbols}
+%\addcontentsline{toc}{part}{PREFACE}
+%\clearpage
+%\addtocontents{toc}{CHAPTER \par}					
+%%\prefacepage{Preface.}
 
 % This gets the headers for the LOF right on the first page.  Subsequent pages
 % are handled by the fancyhdr code in the asudis.sty file.
+
+\addcontentsline{toc}{part}{LIST OF TABLES}
+\renewcommand{\cftlabel}{Table}
+\listoftables
+\addtocontents{lot}{Table~\hfill Page \par}
+\newpage
+
+\addcontentsline{toc}{part}{LIST OF FIGURES}
+%\addtocontents{toc}{CHAPTER \par}
+\renewcommand{\cftlabel}{Figure}
+\addtocontents{lof}{Figure~\hfill Page \par}
+\listoffigures
+%\addtocontents{lof}{Figure~\hfill Page \par}
+\newpage
+
+\addcontentsline{toc}{part}{LIST OF SYMBOLS}
+\clearpage
+\symbolspage{}
+
+\addcontentsline{toc}{part}{PREFACE}
+\clearpage
+\addtocontents{toc}{CHAPTER \par}					
+\prefacepage{\\Enter content here.}
+
 
 
 %-----------------------body

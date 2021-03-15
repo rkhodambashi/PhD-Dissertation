@@ -11,7 +11,7 @@ Soft actuators, composed of deformable matter such as fluids, gels, elastomers, 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{ConceptDesign6_O.pdf}
-    \caption{Experimental setup for tracking control of a 2-DOF manipulator with embedded hydrogel Soft Voxel Actuators (SVAs)~\cite{doroudchi2020dynamic}. (a) Illustration of a manipulator in a water-filled tank with a camera for vision-based feedback of the manipulator tip. (b) Camera view of the setup, including a fabricated 
+    \caption[Experimental setup for tracking control of a 2-DOF manipulator]{Experimental setup for tracking control of a 2-DOF manipulator with embedded hydrogel Soft Voxel Actuators (SVAs)~\cite{doroudchi2020dynamic}. (a) Illustration of a manipulator in a water-filled tank with a camera for vision-based feedback of the manipulator tip. (b) Camera view of the setup, including a fabricated 
     manipulator prototype and checkerboard for camera calibration. (c) Illustration of SVA deformation in various activation states (red = on; black = off).}
     \vspace{-0.75cm}
     \label{fig:setup}
@@ -50,7 +50,7 @@ In this section, the kinematics of the manipulator are derived in order to compu
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{Path_Picture_New_Eleven.pdf}
-    \caption{Schematic and workspace of the manipulator. (a) The 2-DOF parallel mechanism model with two prismatic joints. (b), (c) Workspaces for extensions with lengths $d=25$\,mm and $d=9$\,mm, respectively, with exemplar elliptical trajectories overlaid in red. Extra loads are added to the longer extension in (b) to test the robustness of the controller in experiment.}
+    \caption[Schematic and workspace of the manipulator]{Schematic and workspace of the manipulator. (a) The 2-DOF parallel mechanism model with two prismatic joints. (b), (c) Workspaces for extensions with lengths $d=25$\,mm and $d=9$\,mm, respectively, with exemplar elliptical trajectories overlaid in red. Extra loads are added to the longer extension in (b) to test the robustness of the controller in experiment.}
     \label{fig:Path}
 \end{figure}
  
@@ -115,7 +115,7 @@ Multiple input-output datasets were gathered across various ranges of amplitudes
 \begin{figure}[h]
 \centering
 {\includegraphics[width=\textwidth]{output-feedback-control_block_final.pdf}}
-\caption{Block diagrams of the proposed output-feedback controllers with state-space representation in the tracking framework~\cite{skogestad2007}. (a) Observer-based controller. (b) $H_\infty$-optimal controller.} \vspace{-0.5cm}
+\caption[Block diagrams of the proposed output-feedback controllers]{Block diagrams of the proposed output-feedback controllers with state-space representation in the tracking framework~\cite{skogestad2007}. (a) Observer-based controller. (b) $H_\infty$-optimal controller.} \vspace{-0.5cm}
 \label{fig:control_block}
 \end{figure}
 
@@ -176,7 +176,7 @@ was computed as \vspace{2mm}
 \begin{figure*}[t]
 \centering
     \includegraphics[width=\textwidth]{Figure_Sim_6.pdf}
-    \caption{Simulation results. (a) 12-bit PWM waveform applied to the SVAs during training. (b) System output and model fitted from training. (c) The $x$ and $y$ coordinates of the manipulator tip over time for the $H_\infty$-optimal and Observer-based controllers, tracking an ellipse. (d) The $x$-$y$ trajectory of the tip during the simulation in (c).
+    \caption[Simulation results of the controller]{Simulation results. (a) 12-bit PWM waveform applied to the SVAs during training. (b) System output and model fitted from training. (c) The $x$ and $y$ coordinates of the manipulator tip over time for the $H_\infty$-optimal and Observer-based controllers, tracking an ellipse. (d) The $x$-$y$ trajectory of the tip during the simulation in (c).
     (e) $H_\infty$-optimal controller with noise and disturbance. (f) Observer-based controller with noise and disturbance.} \vspace{-0.5cm}
 \label{fig:sim}
 \end{figure*}
@@ -237,7 +237,7 @@ To observe the effect of adding noise and disturbance in simulation, the sinusoi
 \begin{figure*}[t]
 \centering
     \includegraphics[width=\textwidth]{Control_Picture_New_Ten.pdf}
-    \caption{Tracking reference and experimental trajectories of  manipulator tip in Cartesian coordinates. 25\,mm manipulator tracking: (a) an elliptical trajectory; (b) a half-ellipse; (c) a quarter-ellipse. 9\,mm manipulator tracking: (d) an elliptical trajectory; (e) a half-ellipse; (f) a quarter-ellipse. (g) 25\,mm manipulator tracking an elliptical trajectory: $x,y$ coordinates over time separately. (h) 9\,mm manipulator tracking an elliptical trajectory: $x,y$ coordinates over time separately. (i) 25\,mm manipulator tracking an elliptical trajectory under 1\,g, 2\,g, and 3\,g.}
+    \caption[Tracking reference and experimental trajectories of  manipulator tip]{Tracking reference and experimental trajectories of  manipulator tip in Cartesian coordinates. 25\,mm manipulator tracking: (a) an elliptical trajectory; (b) a half-ellipse; (c) a quarter-ellipse. 9\,mm manipulator tracking: (d) an elliptical trajectory; (e) a half-ellipse; (f) a quarter-ellipse. (g) 25\,mm manipulator tracking an elliptical trajectory: $x,y$ coordinates over time separately. (h) 9\,mm manipulator tracking an elliptical trajectory: $x,y$ coordinates over time separately. (i) 25\,mm manipulator tracking an elliptical trajectory under 1\,g, 2\,g, and 3\,g.}
     \label{fig:Control_outputs}
 \end{figure*}
 %--------------------------------------------------------------------
@@ -274,7 +274,7 @@ Figure~\ref{fig:Control_outputs}a compares the trajectory of a manipulator with 
 \begin{figure*}[t]
 \centering
 {\includegraphics[width=\textwidth]{Starfish_tube_feet_application_8.pdf}}
-\caption{Control of four 9\,mm manipulators in series for payload transport, in a manner similar to food transport by starfish tube feet. (a) The manipulators, numbered 1 to 4 from left to right, are commanded to first follow the cyan dashed lines from their initial positions to their starting positions on the reference trajectories, and then follow these  trajectories, shown as red dashed lines. Manipulators 1 and 3 have a phase shift of $180^\circ$ compared to manipulators 2 and 4. (b) Illustration of a starfish-inspired robotic platform with four hydrogel-actuated manipulators. (c) Real starfish transporting a clam on its tube feet. (d) Displacement of the payload as a function of time for different reference trajectories and load weights. (e) Array of four manipulators functioning as described in (a) to transport the payload. Image was taken when the manipulators completed the first gait cycle. The payload is a clear flat acrylic plate with a black square on its left side. The positions of the manipulator tips are marked by triangles at their initial locations, circles at the start of the gait cycle, squares at the middle of the gait cycle, and diamonds at the end of the gait cycle.
+\caption[Control of four 9\,mm manipulators in series for payload transport]{Control of four 9\,mm manipulators in series for payload transport, in a manner similar to food transport by starfish tube feet. (a) The manipulators, numbered 1 to 4 from left to right, are commanded to first follow the cyan dashed lines from their initial positions to their starting positions on the reference trajectories, and then follow these  trajectories, shown as red dashed lines. Manipulators 1 and 3 have a phase shift of $180^\circ$ compared to manipulators 2 and 4. (b) Illustration of a starfish-inspired robotic platform with four hydrogel-actuated manipulators. (c) Real starfish transporting a clam on its tube feet. (d) Displacement of the payload as a function of time for different reference trajectories and load weights. (e) Array of four manipulators functioning as described in (a) to transport the payload. Image was taken when the manipulators completed the first gait cycle. The payload is a clear flat acrylic plate with a black square on its left side. The positions of the manipulator tips are marked by triangles at their initial locations, circles at the start of the gait cycle, squares at the middle of the gait cycle, and diamonds at the end of the gait cycle.
 }
     \label{fig:Control_payload}
 \end{figure*}
@@ -309,15 +309,8 @@ Ellipse         & 2.7+3 & 60  & 2.30\\
 \end{table}
 
 %------------------------------------------------------
-\section{Conclusion}
-
-In this paper, we addressed a trajectory-tracking problem for a millimeter-scale 2-DOF manipulator with soft hydrogel-based actuators. We defined a linear state-space model of the manipulator and fit the matrices of this model using input-output measurement black-box identification. This state-space representation enables the implementation of a range of controllers on the manipulator; in this paper, the performance of an observer-based controller was compared in simulation to that of an $H_{\infty}$-optimal controller in an output-feedback framework with and without noise and disturbance. We showed experimentally that different versions of the manipulator are able to track various reference trajectories, even under load, using the $H_{\infty}$-optimal controller.
-
-Our ability to coordinate independently controllable soft actuators with complex internal dynamics in a robotic system demonstrates progress in the real-time, closed-loop control of mechanisms with this type of actuator. We expect that researchers will be able to adapt this approach across similar stimuli-responsive materials as they are developed and optimized. This will also permit SVAs, manufactured from a variety of materials, to be used for controlled grasping, manipulation, and locomotion tasks across a variety of new soft robotic platforms, such as octopus-inspired continuum robots~\cite{doroudchi2020dynamic}. Our approach can be used to design and implement decentralized controllers on segmented mechanisms with distributed hydrogel actuators, as discussed in our related work~\cite{doroudchi2020dynamic,doroudchi2018decentralized}.
-
-In future work, we plan to improve the speed of the image processing algorithms for tracking the manipulator, and ultimately eliminate the use of the camera for position tracking and instead implement this control scheme using embedded sensor feedback.  This will enable the application of machine learning techniques to optimize control performance.
-
-\appendix
+\subsection{prove that the ${H_{\infty}}$ gain is bounded}
+%\appendix
 We can prove that the ${H_{\infty}}$ gain is bounded using the bounded-real lemma~\cite{boyd1994} below. 
 % \vspace{1mm}
 
@@ -353,3 +346,11 @@ We can prove that the ${H_{\infty}}$ gain is bounded using the bounded-real lemm
 		\end{equation*}
 
 The proof that statement 1 implies 2 requires the Hamiltonian, and the proof that statement 2 implies 1 uses the global stability conditions of the Lyapunov function~\cite{boyd1994}.
+\section{Conclusion}
+
+In this paper, we addressed a trajectory-tracking problem for a millimeter-scale 2-DOF manipulator with soft hydrogel-based actuators. We defined a linear state-space model of the manipulator and fit the matrices of this model using input-output measurement black-box identification. This state-space representation enables the implementation of a range of controllers on the manipulator; in this paper, the performance of an observer-based controller was compared in simulation to that of an $H_{\infty}$-optimal controller in an output-feedback framework with and without noise and disturbance. We showed experimentally that different versions of the manipulator are able to track various reference trajectories, even under load, using the $H_{\infty}$-optimal controller.
+
+Our ability to coordinate independently controllable soft actuators with complex internal dynamics in a robotic system demonstrates progress in the real-time, closed-loop control of mechanisms with this type of actuator. We expect that researchers will be able to adapt this approach across similar stimuli-responsive materials as they are developed and optimized. This will also permit SVAs, manufactured from a variety of materials, to be used for controlled grasping, manipulation, and locomotion tasks across a variety of new soft robotic platforms, such as octopus-inspired continuum robots~\cite{doroudchi2020dynamic}. Our approach can be used to design and implement decentralized controllers on segmented mechanisms with distributed hydrogel actuators, as discussed in our related work~\cite{doroudchi2020dynamic,doroudchi2018decentralized}.
+
+In future work, we plan to improve the speed of the image processing algorithms for tracking the manipulator, and ultimately eliminate the use of the camera for position tracking and instead implement this control scheme using embedded sensor feedback.  This will enable the application of machine learning techniques to optimize control performance.
+
