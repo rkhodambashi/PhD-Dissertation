@@ -43,41 +43,55 @@ In addition, a 3D printing technique has been demonstrated. A sample 3D printed 
 \end{figure}
 
 \subsection{Control of the Hyper-redundant Robotic Arm}
-\begin{figure}[!t]
-\centering
-\includegraphics[width=0.7\textwidth]{control.pdf}
-    \caption[]{}
-    \label{fig:control}
-\end{figure}
+The electrical stimulation of SVAs helps the control engineers to implement and test their algorithm on the developed robot prototypes. In \ref{chap:control} we have discussed the an example of such controller in a mechanism consisting of two SVAs. More complex structures such as the 16 DOF miniature manipulator discussed in \ref{chap:heterogeneous} can also be controlled on the same basis which is discussed in a more recent work~\cite{Doroudchi2020}. 
+So far, all the sensing required for the closed-loop control was performed using a camera. For embedded system it is essential that the sensors are included in the robot. Future work includes finding sensor solutions that can detect the motion of the robot and can be embedded in the robot. 
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=0.7\textwidth]{control.pdf}
+    %\caption[]{}
+    %\label{fig:control}
+%\end{figure}
 
-\subsection{Finite Element Modeling of the Hydrogel Structures}
-\begin{figure}[!t]
-\centering
-\includegraphics[width=0.7\textwidth]{FEM.pdf}
-    \caption[]{}
-    \label{fig:FEM}
-\end{figure}
+%\subsection{Finite Element Modeling of the Hydrogel Structures}
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=0.7\textwidth]{FEM.pdf}
+    %\caption[]{}
+    %\label{fig:FEM}
+%\end{figure}
 
 \subsection{Dynamic Simulation of the Voxel-based Robots}
+While the finite element modeling provides accurate information about the deformation of the hydrogels considering the details of the transport of water in the porous structures, the time required for such simulations are usually long. For soft robot prototyping, it is essential to have tools that can predict the motion of the robot and provide insight about the performance of a particular design. Different tools have been developed for this purpose such as SOFA~\cite{} which uses a hybrid FEM and lumped model engine and VoxCAD~\cite{} which is based on a voxel-based, mass-spring lattice modeling. Work is in progress to expand the possibilities of VoxCAD by adding functionalities such as controlling individual voxel deformation instead of a global deformation function. An example gripper is shown in Figure~\ref{fig:voxcad}
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.7\textwidth]{voxcad.pdf}
-    \caption[]{}
+\includegraphics[width=\textwidth]{voxcad.pdf}
+    \caption[Dynamic simulations]{Dynamic simulations using FEM and mass-spring methods. A) FEM simulation of a voxel contraction as the Joule heater is turned using COMSOL. B) Mass-spring model simulation of a gripper using a modified version of VoxCAD. }
     \label{fig:voxcad}
 \end{figure}
 
 \subsection{A 3-dimensional prototype of the hyper-redundant robot}
+Extending the motion of the miniature hyper-redundant arm discussed in \ref{chap:heterogeneous} to 3D is the next step in the development of this arm. Also this next version would be modular such that different arm segments can be attached together to achieve more complex robots. Each segment has its own computation power, sensors and power supply making it completely independent of other segments. Also each segment can communicate with other segments to perform a shared goal. This prototype can help control engineers to explore the distributed sensing and control algorithms inspired by octopus where some of the control task is not performed by a central nervous system but by a distributed neural network across its arms. A schematic of the idea of a 3D segmented arm is shown in Figure~\ref{fig:3Darm}
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.7\textwidth]{3Darm.pdf}
-    \caption[]{}
+\includegraphics[width=\textwidth]{3Darm.pdf}
+    \caption[3-dimensional miniature arm]{The concept of a 3-dimensional miniature arm segment with embedded power and processor (left). An assembly of segments forming a more complex arm (right)}
     \label{fig:3Darm}
 \end{figure}
 
 \subsection{Expanding the Functionality of the Robots}
+It is widely accepted that the soft robot can outperform rigid robots in terms of adaptability. For example, a robot that needs to be at a certain size for performing its routine tasks, but should be able to reduce its size for squeezing into tight spaces can be made out of soft materials in theory. In practice however, the limitations such as controlling the soft robots and embedding efficient sensors for feedback have so far prevented the demonstration of such tasks by soft robots. These challenges are known to soft robotics community and there has been increasing effort in addressing them. For instance, the relatively new IEEE soft robotics conference (RoboSoft) has started a robotic competition the goal of which is to invite the community to solve some of the mentioned challenges. Figure~\ref{fig:sorocomp} shows the schematic of the competition goals, setup and requirements. Making soft robots using SVAs that can perform some of the tasks mentioned in Figure~\ref{fig:sorocomp} is one of the routes to follow in the future towards more impactful soft robots that can deal with real world situations. 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.7\textwidth]{sorocomp.pdf}
-    \caption[]{}
+\includegraphics[width=0.8\textwidth]{sorocomp.pdf}
+    \caption[SoRo robotic competition]{Schematic showing the requirements, setup and goals in robotic competition as part of IEEE RoboSoft conference.}
     \label{fig:sorocomp}
+\end{figure}
+
+\subsection{Untethered Octopus Inspired Robot}
+The miniature continuum manipulators can be assembled into more complex robots as shown in Figure~\ref{}. These robots can operate autonomously and communicate through the built in wireless communication hardware. Regaring the low production cost, a swarm of these robots can be produced and be used for data collection and monitoring of environmental conditions. 
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\textwidth]{3Darm.pdf}
+    \caption[3-dimensional miniature arm]{The concept of a 3-dimensional miniature arm segment with embedded power and processor (left). An assembly of segments forming a more complex arm (right)}
+    \label{fig:3Darm}
 \end{figure}
