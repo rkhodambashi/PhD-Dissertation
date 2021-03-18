@@ -11,7 +11,7 @@ Soft actuators, composed of deformable matter such as fluids, gels, elastomers, 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{ConceptDesign6_O.pdf}
-    \caption[Experimental setup for tracking control of a 2-DOF manipulator]{Experimental setup for tracking control of a 2-DOF manipulator with embedded hydrogel Soft Voxel Actuators (SVAs)~\cite{doroudchi2020dynamic}. (a) Illustration of a manipulator in a water-filled tank with a camera for vision-based feedback of the manipulator tip. (b) Camera view of the setup, including a fabricated 
+    \caption[Experimental setup for tracking control of a 2-DOF manipulator]{Experimental setup for tracking control of a 2-DOF manipulator with embedded hydrogel Soft Voxel Actuators (SVAs)~\cite{Doroudchi2020}. (a) Illustration of a manipulator in a water-filled tank with a camera for vision-based feedback of the manipulator tip. (b) Camera view of the setup, including a fabricated 
     manipulator prototype and checkerboard for camera calibration. (c) Illustration of SVA deformation in various activation states (red = on; black = off).}
     \vspace{-0.75cm}
     \label{fig:setup}
@@ -83,7 +83,7 @@ $\vect{u}(t)=[V_1(t) \quad V_2(t)]^T$ as the vector of inputs, and $\vect{y}(t)=
 \dot{\vect{x}}(t)&= \vect{A}\vect{x}(t)+\vect{B}\vect{u}(t), \nonumber\\
 \vect{y}(t)&= \vect{C}\vect{x}(t)+\vect{D}\vect{u}(t)\label{eq:2Dmodel} 
 \end{align}
-where the matrices $\vect{A}$, $\vect{B}$, $\vect{C}$, and $\vect{D}$ must be determined for each extension (25\,mm and 9\,mm), separately. Since the state variables of the model are not necessarily measurable, it is crucial to understand the relationship between various input-output models and state-space models in order to accurately identify the state-space model from input-output data~\cite{lim1998state}. To find and select a model that best represents the system's behavior, a number of models were considered including state-space models of different dimensionalities.
+where the matrices $\vect{A}$, $\vect{B}$, $\vect{C}$, and $\vect{D}$ must be determined for each extension (25\,mm and 9\,mm), separately. Since the state variables of the model are not necessarily measurable, it is crucial to understand the relationship between various input-output models and state-space models in order to accurately identify the state-space model from input-output data~\cite{Lim1998}. To find and select a model that best represents the system's behavior, a number of models were considered including state-space models of different dimensionalities.
 % polynomial or nonlinear representations. However, since the state-space model 
 the 2-input 2-output showed a good fit to the data and also directly provides the unknown matrices that are required for  designing the controller, we identified the system using a state-space model. $\vect{A}$, $\vect{B}$, $\vect{C}$, and $\vect{D}$ were identified by applying black-box system identification to a set of time series input-output data according to~\cite{Ljung2001}, using the MATLAB System Identification Toolbox. The identified matrices for the 25\,mm extension were found to be: 
 

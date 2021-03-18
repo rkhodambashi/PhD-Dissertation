@@ -3,7 +3,7 @@
 \chapter{Heterogeneous hydrogel structures as Miniature Hyper-redundant Soft Manipulators}
 \label{chap:heterogeneous}
 Stimuli-responsive hydrogels can sense environmental cues and change their volume accordingly without the need for additional sensors or actuators. This enables a significant reduction in the size and complexity of resulting devices. However, since the responsive volume change of hydrogels is typically uniform, their robotic applications requiring localized and time-varying deformations have been challenging to realize. Here, using addressable and tunable hydrogel building blocks – referred to as Soft Voxel Actuators (SVAs) –heterogeneous hydrogel structures with programmable spatiotemporal deformations is presented. SVAs are produced using a mixed-solvent photopolymerization method, utilizing a fast reaction speed and the cononsolvency property of PNIPAAm to produce highly interconnected hydrogel pore structures, resulting in tunable swelling ratio, swelling rate, and Young’s Modulus in a simple, one-step casting process that is compatible with mass production of SVA units. By designing the location and swelling properties of each voxel and by activating embedded Joule heaters in the voxels, spatiotemporal deformations are achieved which enables heterogeneous hydrogel structures to manipulate objects, avoid obstacles, generate traveling waves and morph to different shapes. Together, these innovations pave the way towards tunable, untethered, and high degree-of-freedom hydrogel robots that can adapt and respond to changing conditions in unstructured environments.
-\section{Bsckground}
+\section{Background}
 Smart hydrogels have attracted great interest in many different fields, such as drug delivery \citesuperscript{Annabi2014, Stuart2010},               
 microfluidics \citesuperscript{DEramo2018a,Goy2019}, and soft robotics \citesuperscript{Banerjee2018}, owing to their large and reversible volume changes in response to a broad range of stimuli without using any additional sensors and actuators. This feature helps reduce the size of devices made of smart hydrogels. 
 % \note{stimuli responsive are responsive to stimuli}. 
@@ -42,142 +42,148 @@ More recently, voxel-based simulations have been used to predict bulk material p
 % bulk hydrogels rk{\citesuperscript{Yuan2017,Cheney2014}} and 
 However, physical realization of voxels as building blocks have been limited to passive and often rigid materials, and are used in conjunction with additive manufacturing processes to increase their throughput \citesuperscript{Hiller2009}. One recent work has used voxel-based computer simulations to optimize the distribution of active and passive materials in a structure for achieving different goals and the resulting mechanisms are physically realized using cardiomyocytes from a frog as building blocks for creating responsive structures\citesuperscript{Kriegman2020}.\\
 
-Inspired by nature's approach for achieving on-demand spatiotemporal deformations in muscle tissue, we introduce addressable and tunable building blocks that can be assembled to create heterogeneous hydrogel structures with \textit{hard-coded} or \textit{reprogrammable} shape change. These building blocks, herein referred to as soft voxel actuators (SVAs), are shown in \firstsubfigref{fig:1}{A}, left. The SVA units, consisting of a responsive hydrogel material and corresponding electrical connections, are inspired by the motor units of muscle tissue (\subfigref{fig:1}{A}, right).
+Inspired by nature's approach for achieving on-demand spatiotemporal deformations in muscle tissue, we introduce addressable and tunable building blocks that can be assembled to create heterogeneous hydrogel structures with \textit{hard-coded} or \textit{reprogrammable} shape change. These building blocks, herein referred to as soft voxel actuators (SVAs), are shown in \firstfigref{fig:analogy}, left. The SVA units, consisting of a responsive hydrogel material and corresponding electrical connections, are inspired by the motor units of muscle tissue (\figref{fig:analogy}, right).
 % , which consist of a motor neuron and the responsive muscle fibers associated with it. 
 The deformation of SVA units as a result of an electrical stimulus from a microcontroller unit (MCU) is analogous to the contraction of muscle fiber units in response to stimuli from the central nervous system (CNS).
 % as seen in \firstsubfigref{fig:1}{A}, left. 
 The selection of electrical stimuli as opposed to other types of stimuli is advantageous, since it enables addressing SVAs directly by small-footprint microcontrollers without the need for bulky equipment or human intervention. \citesuperscript{Yu2013}.\\
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\textwidth]{analogy.pdf}
+\caption[Analogy between biology and artificial systems]{Illustration of bioinspired heterogeneous hydrogel structures composed of tunable and addressable voxels. \textbf{(Left)} Soft Voxel Actuators (SVAs) are electrically addressable building blocks whose deformations can be controlled by a microcontroller unit (MCU). SVAs are analogous to motor units, consisting of a motor neuron and associated muscle fibers, which deform in response to electrical impulses from the CNS \textbf{(Right)}. The microstructure of the hydrogels used to make SVAs can be altered, resulting in tunable material properties.}
+\label{fig:analogy}
+\end{figure}
 
-\section{Results}
-Two types of SVAs have been realized and are described herein: one without an embedded heater (referred to as SVA-I), and one with an embedded heater (referred to as SVA-II), as shown in \subfigref{fig:1}{B}. 
+\section{Concept}
+Two types of SVAs have been realized and are described herein: one without an embedded heater (referred to as SVA-I), and one with an embedded heater (referred to as SVA-II), as shown in \figref{fig:heterogeneous}. 
 % Though voxels of different shapes can be fabricated, the voxels in this paper are fabricated in the shape of basic rectangular blocks of varying sizes to simplify manufacturing, characterization, and assembly. 
 % The \subfigref{fig:1}{b} shows the schematic of SVA-II 
 % % as well as its physical realization 
 % in two different states as the embedded heater is turned on and off. 
 Various combinations of SVA-I and SVA-II can be used for designing and fabricating heterogeneous assemblies. 
 % Standard sizes allow SVA-I and SVA-II units to be assembled into heterogeneous structures for the purposes of creating complex and controllable spatiotemporal motion. 
-One possible combination, shown in \subfigref{fig:1}{B(i)}, uses SVA-I to create pre-programmed voxel assemblies. Based on the specific arrangement of SVA-I consisting of different swelling properties (mainly volume change ratio and rate), complex deformations can be demonstrated. These SVA assemblies deform in response to regular and repeated homogeneous temperature changes (such as the bulk heating and cooling of a water reservoir), generating motions without the need for an on-board energy source. It should be noted that hydrogels expand and contract based on the diffusion of water into and out of their structure when the temperature is passed their critical transition temperature which is around 32\textsuperscript{o} C in case of PNIPAAm hydrogels. Therefore, all our experiments are performed in a water bath. Another combination of SVAs shown in \subfigref{fig:1}{B(ii)}, uses thick film surface mount (SMD) resistive elements with a resistance of 10 ohms as Joule heaters in SVA-II units to create time-varying and inhomogeneous temperature fields, resulting in on-demand dynamic deformations and real-time reconfigurability. Details of the Joule heater elements are presented in the Supporting Information.\\ 
+One possible combination, shown in \subfigref{fig:heterogeneous}{(i)}, uses SVA-I to create pre-programmed voxel assemblies. Based on the specific arrangement of SVA-I consisting of different swelling properties (mainly volume change ratio and rate), complex deformations can be demonstrated. These SVA assemblies deform in response to regular and repeated homogeneous temperature changes (such as the bulk heating and cooling of a water reservoir), generating motions without the need for an on-board energy source. It should be noted that hydrogels expand and contract based on the diffusion of water into and out of their structure when the temperature is passed their critical transition temperature which is around 32\textsuperscript{o} C in case of PNIPAAm hydrogels. Therefore, all our experiments are performed in a water bath. Another combination of SVAs shown in \subfigref{fig:heterogeneous}{(ii)}, uses thick film surface mount (SMD) resistive elements with a resistance of 10 ohms as Joule heaters in SVA-II units to create time-varying and inhomogeneous temperature fields, resulting in on-demand dynamic deformations and real-time reconfigurability. Details of the Joule heater elements are presented in the Supporting Information.\\ 
 % This method is advantageous in applications where bulk temperature changes are infeasible.
 % \note{tighten}. 
 
 % irrespective of the environmental conditions. \note{NOT IF IT'S TOO HOT}
 % \subfigref{fig:1}{d} shows the analogies between the biological muscle fibers and SVAs as addressable building blocks.
 
-\begin{figure}[t]
+\begin{figure}[!ht]
 \centering
-\includegraphics[width=\textwidth]{fig1.pdf}
-\caption[Illustration of bioinspired heterogeneous hydrogel structures]{Illustration of bioinspired heterogeneous hydrogel structures composed of tunable and addressable voxels. \textbf{A)} Soft Voxel Actuators (SVAs) are electrically addressable building blocks whose deformations can be controlled by a microcontroller unit (MCU). SVAs are analogous to motor units, consisting of a motor neuron and associated muscle fibers, which deform in response to electrical impulses from the CNS. The microstructure of the hydrogels used to make SVAs can be altered, resulting in tunable material properties. \textbf{B)} i) SVAs without embedded Joule heaters (SVA-I) are used to create structures with hard-coded shape morphing that respond to a homogeneous temperature field acting globally on the entire structure through the surrounding water bath. ii) SVAs with embedded heaters (SVA-II) are used to create structures with on-demand shape morphing by forming an inhomogeneous temperature field throughout the structure.}
-\label{fig:1}
+\includegraphics[width=\textwidth]{heterogeneous.pdf}
+\caption[Illustration of bioinspired heterogeneous hydrogel structures]{Bioinspired heterogeneous hydrogel structures composed of tunable and addressable voxels. \textbf{i)} SVAs without embedded Joule heaters (SVA-I) are used to create structures with hard-coded shape morphing that respond to a homogeneous temperature field acting globally on the entire structure through the surrounding water bath. \textbf{ii)} SVAs with embedded heaters (SVA-II) are used to create structures with on-demand shape morphing by forming an inhomogeneous temperature field throughout the structure.}
+\label{fig:heterogeneous}
 \end{figure}
 
 % achieved through altering the microstructure of the hydrogels,
 % \note{Tuning the properties is made possible by a hydrogel recipe that supports generating materials with vastly different material properties with only slight differences in the fabrication steps.}
 % \xh{I re-structured this paragraph by introducing the needs for a tunable synthesis method, following by a brief overview of current methods, before proposing our method.}
+\section{Hydrogel Synthesis}
 The ability to select from a broad range of material properties for SVA fabrication can expand the design space of resulting heterogeneous structures. Therefore, a synthesis method that can tune the ratio and rate of hydrogel volume change is required. 
 % to achieve \sout{hydrogels with} a broad spectrum of swelling properties for creating modular SVA assemblies with efficient motion and dexterity.} 
 A variety of physical and chemical methods have been explored to alter the swelling properties of hydrogels \cite{Zhang2008,Imran2010}. 
 These methods are limited by factors such as the narrow range of achievable swelling properties \cite{Kim2016a,Gan2001}, large trade-offs in mechanical properties \cite{Li2018,Depa2012}, long processing times \cite{Zhou2018b, Ma2014}, and a need for careful control of synthesis conditions such as temperature \cite{Otsuka2012} and precursor additives \cite{Bodenberger2016}.\\ 
-%\ya{regarding large trade-offs in mechanical property, our technique does not compromise mechanical property at all, in fact they are enhanced. You can reference our Young's modulus measurements to support this}
-% \xh{True? This incapability of tuning is conflict with the previous sentence. Those methods indeed CAN tune the response rate and ratio. Did you mean their tuning range is small? \rk{yes, I meant they can for example make the response fast but they dont discuss that the speed can be set at any desired value over a range}} 
-% In addition, these methods are usually time consuming and require careful control of synthesis conditions, which increases the processing time and complexity of the entire fabrication. For example, some synthesis \xh{Too vague. Add a few adj words to describe it and be a bit more specific about what synthesis strategy it is here, rather than talking about the curing time only.} involved 2-hour degassing and 1.5-hour photopolymerization.\citesuperscript{Zhou2018b} Some polymerization takes 24 h to be completed.\citesuperscript{Ma2014} 
-% \rk{maybe here I can talk about the requirements of a recipe in order to be a good candidate  for making SVAs such as: mass production (long processing time prevents mass production), compatible with 3D printing methods (should be photopolymerizable,} \xh{OK. The above two examples only talk about the long fabrication time but did not provide information about why. People would wonder what's unique in our method make the curing shorter. Please let me know or use a few adj words before "synthesis" to indicate why, as I commented above. For example, tuning monomer concentration, ratio, or oxygen-free condition...Please do tell.}
-% Among these methods, the mixed solvent method appears promising because of the simplicity, fewer processing steps, and inexpensive equipment.\citesuperscript{Wang2017e,Lee2000,Moreno2017} \xh{It seems there are other mixed solvent methods before. How did they work briefly?  Since I restructured this paragraph, this sentence needs to be rephrased.} 
 
-%\xh{add the important benefit of this synthesis method: being able to create interconnected open pore microstructure, which was not reported previously. Such a structure, importantly, significantly enhanced the diffusion of water in and out of the hydrogel matrix and thus led to rapid actuation.} The materials and synthesis technique are described in details in the \note{Supporting Information}.
-We take advantage of PNIPAAm's cononsolvency, a property of reduced solvation in a mixture of two solvents due to a delicate balance between polymer-solvent and solvent-solvent interactions \cite{Pica2016}. Employing a water and dimethyl sulfoxide (DMSO) mixed solvent in the PNIPAAm hydrogel precursor solution, followed by rapid photopolymerization to induce interconnected open pores, significantly enhanced the rate of water transport into and out of the hydrogel matrix and thus the actuation speed. The microstructure of the gel is altered by changing the water volume fraction (\(\varphi_{w}\)) in the mixed water/DMSO solvent. The SVA swelling rate and displacement, which are directly related to its hydrogel microstructure, are therefore tuned by merely  adjusting \(\varphi_{w}\). Polymerization solvent composition is known to affect the swelling properties of the synthesized PNIPAAm hydrogels \citesuperscript{Wang2017e,Lee2000, Zhang2002a,Feng2011,Tokuyama2008}. 
+We take advantage of PNIPAAm's cononsolvency, a property of reduced solvation in a mixture of two solvents due to a delicate balance between polymer-solvent and solvent-solvent interactions \cite{Pica2016}. Employing a water and dimethyl sulfoxide (DMSO) mixed solvent in the PNIPAAm hydrogel precursor solution, followed by rapid photopolymerization to induce interconnected open pores, significantly enhanced the rate of water transport into and out of the hydrogel matrix and thus the actuation speed. The microstructure of the gel is altered by changing the water volume fraction (\(\varphi_{w}\)) in the mixed water/DMSO solvent. The SVA swelling rate and displacement, which are directly related to its hydrogel microstructure, are therefore tuned by merely  adjusting \(\varphi_{w}\). Polymerization solvent composition is known to affect the swelling properties of the synthesized PNIPAAm hydrogels \citesuperscript{Wang2017e,Lee2000, Zhang2002,Feng2011,Tokuyama2008}. 
 %Rapid actuation using hydrogels requires ultrafast swelling speeds; 
 The combination of the mixed solvent method with a fast 15\,s photopolymerization step is critical for inducing and fixing local aggregations of polymer chains in place,
 % \rk{aggregation of polymer chains(what does it mean)}
-resulting in PNIPAAm hydrogels with open pore structures (\firstsubfigref{fig:2}{A(i)}). Such open pore structures exhibit significantly enhanced rates of thermoresponsive volume change in both heating and cooling phases, compared to conventional hours-long mixed solvent thermopolymerization methods (control experiment), in which the precursors are constantly diffusing towards a homogeneous molecular equilibrium throughout the duration of the reaction, leading to a less interconnected pore structure with thicker pore walls (\subfigref{fig:2}{A(ii)}).
-In order to ensure a valid comparison, the recipe for a representative thermopolymerized control hydrogel was carefully tuned using the initiator concentration while leaving all other components of the precursor solution unchanged, choosing a reaction time such that the conversion and water content match those of the photopolymerized hydrogel (Supporting Information and Table S2). It is readily observed that with equivalent water content, reaction conversion, and reaction solvent composition, the thermopolymerized hydrogel deswells as fast as the photopolymerized hydrogel \subfigref{fig:2}{B(i)} and the two reach nearly identical shrunken volumes (Figure S8, Supporting Information). However the reswelling speed of the thermopolymerized control sample is $\sim$25 times slower than the photopolymerized sample, which can be attributed to the lower observable tortuosity present in the photopolymerized sample \subfigref{fig:2}{B(ii)}. The Young's Modulus of the thermopolymerized hydrogel is $\sim$10 times higher than that of the photopolymerized one (Figure S9, Supporting Information). \\
-%\rk{with have combined some of the favorable features of these methods, focusing on reducing the number of ingredients and shortening the fabrication time in order to make the production of SVAs feasible in labs with less material processing capabilities.}
+resulting in PNIPAAm hydrogels with open pore structures (\firstsubfigref{fig:photothermo}{A(i)}). Such open pore structures exhibit significantly enhanced rates of thermoresponsive volume change in both heating and cooling phases, compared to conventional hours-long mixed solvent thermopolymerization methods (control experiment), in which the precursors are constantly diffusing towards a homogeneous molecular equilibrium throughout the duration of the reaction, leading to a less interconnected pore structure with thicker pore walls (\subfigref{fig:photothermo}{A(ii)}).
+In order to ensure a valid comparison, the recipe for a representative thermopolymerized control hydrogel was carefully tuned using the initiator concentration while leaving all other components of the precursor solution unchanged, choosing a reaction time such that the conversion and water content match those of the photopolymerized hydrogel (Supporting Information and Table S2). It is readily observed that with equivalent water content, reaction conversion, and reaction solvent composition, the thermopolymerized hydrogel deswells as fast as the photopolymerized hydrogel \subfigref{fig:photothermo}{B(i)} and the two reach nearly identical shrunken volumes (Figure S8, Supporting Information). However the reswelling speed of the thermopolymerized control sample is $\sim$25 times slower than the photopolymerized sample, which can be attributed to the lower observable tortuosity present in the photopolymerized sample \subfigref{fig:photothermo}{B(ii)}. The Young's Modulus of the thermopolymerized hydrogel is $\sim$10 times higher than that of the photopolymerized one (Figure S9, Supporting Information). \\
 
-% UV polymerization has been used to polymerize a hydrogel voxel with dimensions of $4\times4\times4\,mm$ in less than $10\,s$. 
-
-% Therefore, using our proposed mixed solvent method simplifies the entire fabrication of SVAs and assembly of heterogeneous hydrogel structures.
-% The mixed solvent method appears promising because of fewer processing steps and inexpensive equipment\citesuperscript{Wang2017e,Lee2000,Moreno2017} which can greatly simplify the fabrication of SVAs. By merely varying the water:DMSO volume ratio denoted by \(\varphi_{w}\), we have been able to tune the swelling properties of poly(N-isopropylacrylamide) (PNIPAAm) hydrogels over a wide range. The materials and synthesis technique are described in details in the \note{Supporting Information}. 
-% Using this method, the swelling rate and displacement of SVAs can be tuned by merely adjusting the water volume fraction \(\varphi_{w}\) in a mixed water/DMSO solvent.
-% In comparison to the polymerization time in previously reported mixed solvent methods which in some cases approaches 24 h,\citesuperscript{Zhang2002a,Feng2011,Tokuyama2008} \xh{Ref 42 does not have journal name.} our proposed method which uses UV polymerization can be used to polymerize hydrogels in less than 10 s.\xh{Aren't there previous reports that use photo-polymerization with mixed solvent? In another word, are we the first one reporting mixed solvent photopolymerization to prepare hydrogels? } Therefore, using our proposed mixed solvent method simplifies the entire fabrication of SVAs and assembly of heterogeneous hydrogel structures. 
-% \xh{I still strongly believe our method is not simpler than others just because of photopolymerization, since nearly all the synthetic hydrogels are photo/thermally-polymerized. Our advantage of this synthesis method is not in the 'simplicity; it is on the effective and continuous tuning of response rate and ratio to provide the choices for SVAs. If we submit to material-topic journals, reviewers likely will question this.}
-
-% defined as:
-% $$\varphi_{w} = \frac{V_{w}}{V_{w} + V_{DMSO}}$$
-% \note{can't use \textbackslash text\{DMSO\}}  
-% The successful realization of such heterogeneous structures lies in our facile hydrogel synthesis method which enables tuning its swelling properties by varying the amount of water in a water/DMSO mixed solvent\note{put action in the front}. 
-
-% \rk{This limitation has prevented the widespread use of many hydrogels with highly desirable properties by robotic researchers.}\note{\citesuperscript{}} 
-
-
-% \note{Insert into previous paragraph}We have used a water/DMSO mixed solvent and a UV polymerization to synthesize poly(N-isopropylacrylamide) (PNIPAAm) hydrogels. The details of the synthesis technique are described in the supporting information \note{S!}. Using this method, the swelling rate and swelling ratio of SVAs can be tuned by merely adjusting the water volume fraction \(\varphi_{w}\) in a mixed  water/DMSO solvent defined as:
-
-% $$\varphi_{w} = \frac{V_{w}}{V_{w} + V_{DMSO}}$$
-% \note{can't use \textbackslash text\{DMSO\}}
-% Water volume fraction \(\varphi_{w}\) in a mixed water/DMSO solvent determines the microstructure of the gel. Since the swelling properties are affected by the microstructuer, the swelling rate and displacement of SVAs can be tuned by merely adjusting the 
-The effect of varying \(\varphi_{w}\) on the hydrogel microstructure has been investigated by scanning electron microscopy (SEM), as shown in \subfigref{fig:2}{C}. Six hydrogels consisting of various \(\varphi_{w}\) were synthesized; they are each represented by a character code ranging from HG00 (representing a hydrogel with \(\varphi_{w}\) = 0.0) to HG05 (representing a hydrogel with \(\varphi_{w}\) = 0.5). Details of the SEM imaging procedure are described in the Supporting Information. Distinct changes in the microstructure can be observed as a function of \(\varphi_{w}\), which impacts a variety of other material properties. When \(\varphi_{w}\) is increased from 0.0 to 0.2, pore size decreases and the pore wall surface begins to change from smooth to rough. We define \(\varphi_{w}\) = 0.2 as a critical water volume fraction, at which the microstructure of the gel starts to change from a closed-pore to an open-pore structure. SEM images for other values of \(\varphi_{w}\) are presented in Figure S4 in the Supporting Information.
-\begin{figure}[t]
+\begin{figure}[!ht]
 \centering
-\includegraphics[width=\textwidth]{fig2.pdf}
-\caption[Tunable material properties using mixed solvent photopolymerization]{Tunable material properties using mixed solvent photopolymerization.
+\includegraphics[width=0.85\textwidth]{photothermo.pdf}
+\caption[Microstructure of thermopolymerized and photopolymerized gels ]{Comparison of photopolymerization and thermopolymerization methods on gel microstructure and performance.
 % achieved by varying water volume fraction ($\varphi_w$) in the prepolymer mixture. 
-\textbf{A)} SEM micrographs of photopolymerized (i) and thermopolymerized (ii) hydrogels synthesized in water volume fraction \(\varphi_{w}\)\,=\,0.27 (scale bar = $5\,\mu m$). \textbf{B)} Deswelling (i) and swelling (ii) rates of photopolymerized and thermopolymerized hydrogels synthesized in water volume fraction \(\varphi_{w}\)\,=\,0.27. \textbf{C)} SEM images showing the effect of $\varphi_w$ on pore structure of the photopolymerized PNIPAAm hydrogel (scale bars $10\,\mu m$ and $1\,\mu m$ for low and high magnification, respectively). \textbf{D)} Displacement (D) over time generated by SVA-II units with different values of \(\varphi_{w}\)  under a $1\,gf$ load, as measured by the setup described in the Supporting Information. \textbf{E,F)} Displacement rate (DR) and maximum displacement (MD) of SVA-II units as a function of $\varphi_w$,(extracted from B as described in the Supporting Information).}
+\textbf{A)} SEM micrographs of photopolymerized (i) and thermopolymerized (ii) hydrogels synthesized in water volume fraction \(\varphi_{w}\)\,=\,0.27 (scale bar = $5\,\mu m$). \textbf{B)} Deswelling (i) and swelling (ii) rates of photopolymerized and thermopolymerized hydrogels synthesized in water volume fraction \(\varphi_{w}\)\,=\,0.27.}
 % e) Compressive blocked force of a SVA-II f) Maximum compressive force as a function of $\varphi_w$ (extracted from e). 
 % g) Young's modulus (E) as a function of SR. the data collection setup is described in methods.\note{change SR to $\varphi_w$}}
-\label{fig:2}
+\label{fig:photothermo}
 \end{figure}
+
+The effect of varying \(\varphi_{w}\) on the hydrogel microstructure has been investigated by scanning electron microscopy (SEM), as shown in \firstfigref{fig:sem}. Six hydrogels consisting of various \(\varphi_{w}\) were synthesized; they are each represented by a character code ranging from HG00 (representing a hydrogel with \(\varphi_{w}\) = 0.0) to HG05 (representing a hydrogel with \(\varphi_{w}\) = 0.5). Details of the SEM imaging procedure are described in the Supporting Information. Distinct changes in the microstructure can be observed as a function of \(\varphi_{w}\), which impacts a variety of other material properties. When \(\varphi_{w}\) is increased from 0.0 to 0.2, pore size decreases and the pore wall surface begins to change from smooth to rough. We define \(\varphi_{w}\) = 0.2 as a critical water volume fraction, at which the microstructure of the gel starts to change from a closed-pore to an open-pore structure. SEM images for other values of \(\varphi_{w}\) are presented in Figure S4 in the Supporting Information.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\textwidth]{sem.pdf}
+\caption[The effect of $\varphi_w$ on pore structure]{Tunable material properties using mixed solvent photopolymerization.
+% achieved by varying water volume fraction ($\varphi_w$) in the prepolymer mixture. 
+SEM images showing the effect of $\varphi_w$ on pore structure of the photopolymerized PNIPAAm hydrogel (scale bars $10\,\mu m$ and $1\,\mu m$ for low and high magnification, respectively).}
+% e) Compressive blocked force of a SVA-II f) Maximum compressive force as a function of $\varphi_w$ (extracted from e). 
+% g) Young's modulus (E) as a function of SR. the data collection setup is described in methods.\note{change SR to $\varphi_w$}}
+\label{fig:sem}
+\end{figure}
+
 % \rk{this section should be rewritten to account for the fact that we have characterized actuators and not the material}
 The changes in hydrogel microstructure play a role in the dynamic response of SVAs. The linear displacement generated by a SVA unit
 % defined as the volume of the fully swollen SVA to that of dry gel -- 
-is measured using a vision-based test setup as described and shown in the Supporting Information and Figure S3. \subfigref{fig:2}{D} plots the time evolution of the displacement ($D$) of SVA units with different values of $\varphi_w$ 
+is measured using a vision-based test setup as described and shown in the Supporting Information and Figure S3. \firstsubfigref{fig:forcedisp}{A} plots the time evolution of the displacement ($D$) of SVA units with different values of $\varphi_w$ 
 %as a function of time -- 
 as each SVA's embedded heater is turned on for 60\,s 
 % \rk{should a space be inserted between the s 60?} \xh{typically yes, between the number and unit} 
-and then turned off for 60\,s. The displacement over time of the hydrogel made with \(\varphi_{w}\) = 0.0 is included as the basis for comparison across all tests. The negative displacement observed is because the SVAs initially expand instead of contract as the heater is turned on which might be due to water slightly expanding and vaporizing. Two performance criteria for the SVA units, deformation rate ($DR$) and maximum displacement ($MD$), are extracted from the data in \subfigref{fig:2}{D} and are shown in \subfigref{fig:2}{E,F} respectively. During both heating and cooling, $DR$ is small for \(\varphi_{w} < 0.2\). At \(\varphi_{w} = 0.2\), the $DR$ during heating is more than 36 times the $DR$ during cooling. As a result, fast and large deformations are observed during the 60\,s of heating, and almost no deformation is observed during the 60\,s of cooling. 
+and then turned off for 60\,s. The displacement over time of the hydrogel made with \(\varphi_{w}\) = 0.0 is included as the basis for comparison across all tests. The negative displacement observed is because the SVAs initially expand instead of contract as the heater is turned on which might be due to water slightly expanding and vaporizing. Two performance criteria for the SVA units, deformation rate ($DR$) and maximum displacement ($MD$), are extracted from the data in \subfigref{fig:forcedisp}{A} and are shown in \subfigref{fig:forcedisp}{B,C} respectively. During both heating and cooling, $DR$ is small for \(\varphi_{w} < 0.2\). At \(\varphi_{w} = 0.2\), the $DR$ during heating is more than 36 times the $DR$ during cooling. As a result, fast and large deformations are observed during the 60\,s of heating, and almost no deformation is observed during the 60\,s of cooling. 
 Highest $DR$ (in both heating and cooling) occurs in gels with $\varphi_w = 0.3$, while $MD$ peaks at $\varphi_w = 0.2$ and decrease thereafter.
 % \note{more, or faster? rate or total shrinkage? use quantitative DR, MD etc..} 
 % as the heater is turned on. When the heater is turned off, however, the gel does not swell during the 60s duration of the experiment.
 In addition to swelling properties, other mechanical properties such as Young's modulus and force produced by the SVAs can also be tuned by adjusting \(\varphi_{w}\) (Figure S5, Supporting Information).\\ 
-
-% We have used the tunable hydrogel recipe and voxel-based assembly as tools to increase the variety and complexity of shape transformations in heterogeneous structures. Due to the wide range of tunable properties enabled by our hydrogel synthesis technique,
-A variety of heterogeneous structures can be produced that transform into different configurations, depending on their hard-coded material domains, as shown in \firstfigref{fig:3}. 
-% \rk{add description about why we grouped voxels together and cast them together} 
-As a first example, a beam with only two material domains is fabricated from HG00 and HG02 hydrogels (\subfigref{fig:3}{A(i)}). 
-% We use this structure as a bench mark to compare the performance of structures produced using our mixed solvent method to those presented in materials science literature\note{\citesuperscript{}}. 
-At 20\,$^{\circ}$C, the beam is in its equilibrium position. As the temperature increases to 45\,$^{\circ}$C, the HG02 hydrogel shrinks more than HG00 (from \subfigref{fig:2}{C,D}, both $MD$ and $DR$ are higher for HG02), 
-% \note{more or faster?} 
-which results in a stress mismatch. To balance these stresses, the beam bends into a circular shape. 
-% as seen in \subfigref{fig:3}{A}.
-We will henceforth refer to this structure as a `gripper'. %for future reference. 
-A second example uses HG00 and HG02 hydrogels again, but this time with 
-% a voxel-based arrangement, creating shape morphing structures with multiple 
-8 material domains, as shown in \subfigref{fig:3}{B(ii-iv)}. The beams in these figures consist of different arrangements of HG00 and HG02 voxels, and as a result exhibit different deformations when subjected to a homogeneous temperature change in the surrounding water from 20\,$^{\circ}$C to 45\,$^{\circ}$C (for details, see Movie S1 in the Supporting Information)\\
-% The wide range of tunable properties enables creating heterogeneous structures with complex functions. \rk{add description about why we grouped voxels together and cast them together} As a first step, a bilayer beam -- a commonly used structure demonstrated throughout materials science literature\note{\citesuperscript{}} -- is created with HG00 and HG03, as shown in \firstsubfigref{fig:3}{A}. This beam bends to one side as the temperature increases because the HG03 hydrogel shrinks more \dma{than HG00}\note{more or faster?} according to \subfigref{fig:3}{A}. Further, our proposed voxel-based approach has also been used to create shape morphing structures as shown in \subfigref{fig:3}{B}. Different voxel arrangements using HG00 and HG02 deform when subjected to a homogeneous temperature change in the surrounding water from 20 to 45\textsuperscript{o} C.
-
-Patterning material domains can be used to leverage the shape transformations into unique functions tied to structural heterogeneity.
-% A combination of voxels made of HG00, HG02 and HG03 to increase the complexity of generated shapes even further bilayer and voxel-based structures to perform even more complex tasks. 
-% At this level, these heterogeneous structures may be considered soft robots, since they can perform functions such as grasping and manipulation. \note{out of place}
-To demonstrate this \textit{structure--function} relationship, two different structures, Str-I and Str-II, are made with different combinations of HG00, HG02, and HG03, as shown in \subfigref{fig:3}{B}. These structures represent a combination of the structures in \subfigref{fig:3}{A}(i,ii). 
-% and are shown in \subfigref{fig:3}{A,B}.
-% Two different structures  -- Str-I and Str-II --  have been constructed which are shown in top and bottom row of \subfigref{fig:3}{c} respectively. 
-In response to a global cyclic temperature change from 20\,$^{\circ}$C to 45\,$^{\circ}$C
-% \textsuperscript{o}C 
-and back to 20\,$^{\circ}$C, these structures are observed to bend towards an object, grasp it (by wrapping around it), and transport it to another location (\subfigref{fig:3}{B} and (Movie S2, Supporting Information). The geometric configuration of material domains in both structures are the same. However, the `gripper' portion of Str-I is a combination of HG00/HG03 domains, whereas in Str-II it is a combination of HG00/HG02 domains. As a result of this minor material difference, the object grasped by Str-I and Str-II moves along different trajectories, as seen in \subfigref{fig:3}{C}, despite an identical set of initial conditions. Due to the high $DR$ of HG03  
-% in the gripper part of Str-I 
-during the cooling phase (\subfigref{fig:2}{E}), the gripper in Str-I opens and the object is released in the early stages of the cooling phase. 
-% (\note{Movie S5, Supporting Information}). 
-The gripper in Str-II, on the other hand, does not open at the same time as Str-I and continues to hold the object throughout its cooling phase; this can be attributed to the lower $DR$ of the HG02 layer compared to HG03. To illustrate these differences, the $x$ and $y$ coordinates of the object over time are plotted %depicted 
-in \subfigref{fig:3}{D}, and the time when the object is released by each structure is indicated. Achieving inhomogeneous deformations in response to a homogeneous global stimulus using structures with hard-coded deformations as described simplifies the system and eliminates the need for on-board power sources.\\ 
-
-\begin{figure}[t]
+\begin{figure}[!ht]
 \centering
-\includegraphics[width=\textwidth]{fig3.pdf}
-\caption[Realization of structural inhomogeneity]{Realization of structural inhomogeneity through patterning of hydrogels with different swelling properties. \textbf{A)} (i) A two-material, two-region structure can almost bend into a circle when the surrounding water bath temperature is raised  above the transition temperature of PNIPAAm hydrogel (~32\,$^{\circ}$C) (ii-iv) Increasing the number of material domains in the structure enables it to achieve more diverse shapes. When the surrounding water bath temperature is increased, each structure reconfigures into a different shape, depending on its arrangement of SVA-I units. \textbf{B)} Hybrid structures comprised of substructures with the SVA arrangements in A)(i,ii) are
-%Using \spr{\sout{the structures}  the SVA arrangements} introduced in A), hybrid structures are \spr{created that are \sout{made}} 
-capable of manipulating objects. The material distribution in two example structures, denoted by Str-I and Str-II, is shown in the schematic on the far left. The snapshots display the configurations of the two structures over time as the global water bath temperature is increased and then decreased.
-% the top row denoted by Str-I is made of a bilayer comprising HG00 and HG03 whereas in the bottom row (Str-II) is composed of HG00 and HG02. 
-\textbf{C)} Image showing the start position,  end position, and  trajectory of the  object manipulated by Str-I (left) and Str-II (right). \textbf{D)} Time evolution of the $x$ and $y$ coordinates of the manipulated object's center of mass.  Str-I releases the object   a $t=300$ s, while  Str-II releases it at $t= 600$ s, demonstrating the versatility of the voxel-based assembly approach to creating heterogeneous structures with diverse functions.}
-\label{fig:3}
+\includegraphics[width=\textwidth]{forcedisp.pdf}
+\caption[The effect of $\varphi_w$ on mechanical properties]{Tunable material properties using mixed solvent photopolymerization.
+% achieved by varying water volume fraction ($\varphi_w$) in the prepolymer mixture. 
+\textbf{A)} Displacement (D) over time generated by SVA-II units with different values of \(\varphi_{w}\)  under a $1\,gf$ load, as measured by the setup described in the Supporting Information. \textbf{C,D)} Displacement rate (DR) and maximum displacement (MD) of SVA-II units as a function of $\varphi_w$,(extracted from A as described in the Supporting Information).}
+% e) Compressive blocked force of a SVA-II f) Maximum compressive force as a function of $\varphi_w$ (extracted from e). 
+% g) Young's modulus (E) as a function of SR. the data collection setup is described in methods.\note{change SR to $\varphi_w$}}
+\label{fig:forcedisp}
 \end{figure}
 
+\section{Hard-coded Shape Morphing}
+% We have used the tunable hydrogel recipe and voxel-based assembly as tools to increase the variety and complexity of shape transformations in heterogeneous structures. Due to the wide range of tunable properties enabled by our hydrogel synthesis technique,
+A variety of heterogeneous structures can be produced that transform into different configurations, depending on their hard-coded material domains.
+% \rk{add description about why we grouped voxels together and cast them together} 
+As a first example, a beam with only two material domains is fabricated from HG00 and HG02 hydrogels (\firstsubfigref{fig:bilayer}{(i)}). 
+% We use this structure as a bench mark to compare the performance of structures produced using our mixed solvent method to those presented in materials science literature\note{\citesuperscript{}}. 
+At 20\,$^{\circ}$C, the beam is in its equilibrium position. As the temperature increases to 45\,$^{\circ}$C, the HG02 hydrogel shrinks more than HG00 (from \subfigref{fig:forcedisp}{B,C}, both $MD$ and $DR$ are higher for HG02), 
+% \note{more or faster?} 
+which results in a stress mismatch. To balance these stresses, the beam bends into a circular shape as seen in \subfigref{fig:bilayer}{(ii) ,(iii)}.
+We will henceforth refer to this structure as a `gripper'. %for future reference. 
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.7\textwidth]{bilayer.pdf}
+\caption[Realization of structural inhomogeneity]{Realization of structural inhomogeneity through patterning of hydrogels with different swelling properties. \textbf{i)} A two-material, two-region structure made of HG00 and HG03 regions \textbf{ii,iii)} The bilayer structure can almost bend into a circle when the surrounding water bath temperature is raised above or below the transition temperature of PNIPAAm hydrogel (~32\,$^{\circ}$C)}
+\label{fig:bilayer}
+\end{figure}
+
+A second example uses HG00 and HG02 hydrogels again, but this time with 
+% a voxel-based arrangement, creating shape morphing structures with multiple 
+8 material domains, as shown in \firstsubfigref{fig:hardcoded}{(i-iii)}. The beams in these figures consist of different arrangements of HG00 and HG02 voxels, and as a result exhibit different deformations when subjected to a homogeneous temperature change in the surrounding water from 20\,$^{\circ}$C to 45\,$^{\circ}$C (for details, see Movie S1 in the Supporting Information)\\
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\textwidth]{hardcoded.pdf}
+\caption[Using SVAs to increase deformation domains]{Realization of structural inhomogeneity through patterning of hydrogels with different swelling properties. \textbf{i-iii)} Increasing the number of material domains in the structure enables it to achieve more diverse shapes. When the surrounding water bath temperature is increased, each structure reconfigures into a different shape, depending on its arrangement of SVA-I units.}
+\label{fig:hardcoded}
+\end{figure}
+
+Patterning material domains can be used to leverage the shape transformations into unique functions tied to structural heterogeneity. To demonstrate this \textit{structure--function} relationship, two different structures, Str-I and Str-II, are made with different combinations of HG00, HG02, and HG03, as shown in \firstfigref{fig:hardcodedrobot}. These structures represent a combination of the structures in \figref{fig:bilayer} and \figref{fig:hardcoded}. In response to a global cyclic temperature change from 20\,$^{\circ}$C to 45\,$^{\circ}$C and back to 20\,$^{\circ}$C, these structures are observed to bend towards an object, grasp it (by wrapping around it), and transport it to another location. 
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\textwidth]{hardcodedrobot.pdf}
+\caption[Object transport in hard-coded structures]{Realization of structural inhomogeneity through patterning of hydrogels with different swelling properties. Hybrid structures comprised of substructures with the SVA arrangements in \figref{fig:bilayer} and \figref{fig:hardcoded} are capable of manipulating objects. The material distribution in two example structures, denoted by Str-I and Str-II, is shown in the schematic on the far left. The snapshots display the configurations of the two structures over time as the global water bath temperature is increased and then decreased.}
+\label{fig:hardcodedrobot}
+\end{figure}
+
+The geometric configuration of material domains in both structures are the same. However, the `gripper' portion of Str-I is a combination of HG00/HG03 domains, whereas in Str-II it is a combination of HG00/HG02 domains. As a result of this minor material difference, the object grasped by Str-I and Str-II moves along different trajectories, as seen in \firstfigref{fig:hardcodedtraj}{A}, despite an identical set of initial conditions. Due to the high $DR$ of HG03 during the cooling phase (\subfigref{fig:forcedisp}{B}), the gripper in Str-I opens and the object is released in the early stages of the cooling phase. The gripper in Str-II, on the other hand, does not open at the same time as Str-I and continues to hold the object throughout its cooling phase; this can be attributed to the lower $DR$ of the HG02 layer compared to HG03. To illustrate these differences, the $x$ and $y$ coordinates of the object over time are plotted in \subfigref{fig:hardcodedtraj}{B}, and the time when the object is released by each structure is indicated. Achieving inhomogeneous deformations in response to a homogeneous global stimulus using structures with hard-coded deformations as described simplifies the system and eliminates the need for on-board power sources.\\ 
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\textwidth]{hardcodedtraj.pdf}
+\caption[Trajectories created by hard-coded structures]{Realization of structural inhomogeneity through patterning of hydrogels with different swelling properties. \textbf{A)} Image showing the start position,  end position, and  trajectory of the  object manipulated by Str-I (left) and Str-II (right). \textbf{B)} Time evolution of the $x$ and $y$ coordinates of the manipulated object's center of mass.  Str-I releases the object   a $t=300$ s, while  Str-II releases it at $t= 600$ s, demonstrating the versatility of the voxel-based assembly approach to creating heterogeneous structures with diverse functions.}
+\label{fig:hardcodedtraj}
+\end{figure}
+
+\section{On-demand Shape Morphing}
 For applications in dynamic, unstructured environments, such as underwater robotic exploration, it is less useful to pre-program complex trajectories into a structure, since global stimulus control is not always feasible. To enable on-demand thermoresponsive shape morphing in these conditions, SVA-II units may be employed, as depicted in \subfigref{fig:1}{B(ii)}. The 40×11×5 mm structure shown in \firstsubfigref{fig:4}{A} was assembled using 16 SVA-II units. These SVAs are made of HG03, which exhibits the highest $DR$ observed across all recipes (\subfigref{fig:2}{E}). The first example of on-demand shape morphing is illustrated in \subfigref{fig:4}{B(i)}, in which the structure morphs into an `S' shape and a `reverse S' shape when particular SVAs are actuated via commands from a microcontroller. %where the same structure morphs into `S' and `reverse S' shapes based on commands from a microcontroller. 
 A second example of on-demand shape morphing is illustrated in \subfigref{fig:4}{B(ii)}; it highlights how the curvature of a structure may be varied as a function of the voltage supplied to the SVA-II units.\\
 
