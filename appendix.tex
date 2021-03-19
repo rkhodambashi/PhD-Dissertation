@@ -19,7 +19,7 @@ Soft actuators, composed of deformable matter such as fluids, gels, elastomers, 
 
 Hydrogel-based active mechanisms using morphing or bending beams and sheets have been utilized for sensing, smart micro-fluidic valves, optical lensing, and micro-scale swimming and walking~\cite{Ionov2014}. More complicated tasks, such as picking and placing objects with open-loop control methods, have also been demonstrated~\cite{Wang2015b}. Due to the nature of the stimuli, closed-loop control of hydrogel actuators has remained a challenge. Light sources such as lasers~\cite{Luo2015}, for instance, require sophisticated and bulky equipment to produce motion. The methods used in~\cite{Kim2015a} require bulk heating of the surrounding fluids, which limits their application to confined environments, such as tanks. Electric fields~\cite{Morales2014} and  chemical gradients~\cite{Du2019, Nguyen2017} affect an entire region simultaneously, which means that all actuators placed in these fields are subject to the same stimulus. This results in primitive systems that are capable of performing  simple tasks. For instance, novel devices with soft, 3D-printed, parallel, contactless actuators for biomedical applications like cell manipulation and drug release~\cite{Zolfagharian2018} use electro-responsive hydrogels and are stimulated via electric field; the actuators are simultaneously affected by changes in the electric field, resulting in a single controllable degree of actuation for the device. To enable independent actuation of multiple hydrogel actuators, we recently developed a novel approach or fabricating and integrating Soft Voxel Actuators (SVAs) composed of temperature-responsive hydrogel~\cite{Khodambashi2021}. We also presented a dynamic model for a continuum robotic arm with distributed SVAs and validated the model with open-loop control of independently actuated SVAs~\cite{Doroudchi2020}.  
 
-In this paper, we introduce the design, implementation, and experimental validation of {\it closed-loop controllers} for hydrogel-actuated robots. We demonstrate our control approach on a millimeter-scale, two degree-of-freedom (DOF) manipulator actuated by two SVAs, shown in Fig.~\ref{fig:setup}. Many prior control-oriented models developed for similar systems have been governed by the kinematic equations describing rigid links~\cite{Webster2010,RezayatSorkhabadi2019}, which are less useful in the design of feedback controllers for continuously deformable robots with soft actuators embedded within their structure. To address this, we propose a black-box identified model as in~\cite{Ljung2010,Schaller2020} that simplifies system dynamics in the form of a linear state-space representation. Modern control is built upon state-space models and state-space system identification, which  makes modern control techniques more practical in application~\cite{Lim1998,Chinimilli2020}. We apply system identification methods to obtain a linear state-space model of the manipulator, which can be used to implement a wide range of controllers for different applications. We design an $H_{\infty}$-optimal output-feedback tracking controller~\cite{Aastrom2010},  similar to the $H_{\infty}$ output-feedback controller in~\cite{Farhamfard2016} for flexible needles guidance with a difference that their control system is dynamic rather than static. We then compare it in simulation to an observer-based output-feedback controller. The $H_{\infty}$-optimal controller is then experimentally validated for planar reference trajectories. Finally, we show that our approach can be used to control more complex mechanisms actuated by SVAs through a demonstration of payload transport by four manipulators.
+In this chapter, we introduce the design, implementation, and experimental validation of {\it closed-loop controllers} for hydrogel-actuated robots. We demonstrate our control approach on a millimeter-scale, two degree-of-freedom (DOF) manipulator actuated by two SVAs, shown in Fig.~\ref{fig:setup}. Many prior control-oriented models developed for similar systems have been governed by the kinematic equations describing rigid links~\cite{Webster2010,RezayatSorkhabadi2019}, which are less useful in the design of feedback controllers for continuously deformable robots with soft actuators embedded within their structure. To address this, we propose a black-box identified model as in~\cite{Ljung2010,Schaller2020} that simplifies system dynamics in the form of a linear state-space representation. Modern control is built upon state-space models and state-space system identification, which  makes modern control techniques more practical in application~\cite{Lim1998,Chinimilli2020}. We apply system identification methods to obtain a linear state-space model of the manipulator, which can be used to implement a wide range of controllers for different applications. We design an $H_{\infty}$-optimal output-feedback tracking controller~\cite{Aastrom2010},  similar to the $H_{\infty}$ output-feedback controller in~\cite{Farhamfard2016} for flexible needles guidance with a difference that their control system is dynamic rather than static. We then compare it in simulation to an observer-based output-feedback controller. The $H_{\infty}$-optimal controller is then experimentally validated for planar reference trajectories. Finally, we show that our approach can be used to control more complex mechanisms actuated by SVAs through a demonstration of payload transport by four manipulators.
 
 %%-----------------contribution-----------------------------
 In summary, the contributions of this paper are as follows:
@@ -234,79 +234,79 @@ To observe the effect of adding noise and disturbance in simulation, the sinusoi
 
 %-------------------------------------------------------
 
-\begin{figure*}[t]
-\centering
-    \includegraphics[width=\textwidth]{Control_Picture_New_Ten.pdf}
-    \caption[Tracking reference and experimental trajectories of  manipulator tip]{Tracking reference and experimental trajectories of  manipulator tip in Cartesian coordinates. 25\,mm manipulator tracking: (a) an elliptical trajectory; (b) a half-ellipse; (c) a quarter-ellipse. 9\,mm manipulator tracking: (d) an elliptical trajectory; (e) a half-ellipse; (f) a quarter-ellipse. (g) 25\,mm manipulator tracking an elliptical trajectory: $x,y$ coordinates over time separately. (h) 9\,mm manipulator tracking an elliptical trajectory: $x,y$ coordinates over time separately. (i) 25\,mm manipulator tracking an elliptical trajectory under 1\,g, 2\,g, and 3\,g.}
-    \label{fig:Control_outputs}
-\end{figure*}
-%--------------------------------------------------------------------
-\subsection{Experimental validation of $H_\infty$-optimal controller}
-
-Since the $H_\infty$-optimal controller exhibited higher tracking accuracy in simulation both with and without disturbance and noise, it was selected for experimental implementation. Using the designed control gain for $H_\infty$, we have implemented the output-feedback tracking framework depicted in Fig.~\ref{fig:control_block}b on the hydrogel-based manipulator (Fig.~\ref{fig:setup}). Half-ellipse and quarter-ellipse paths were also used as reference trajectories. Sources of noise in the experiment arise in the testing environment and vision-based feedback. Disturbances include modeling and manufacturing errors.  The MAE and NMAE values are reported for one cycle per trajectory in Table~\ref{table:control}, though three repeating cycles per trajectory were collected.
-
-Figure~\ref{fig:Control_outputs}a compares the trajectory of a manipulator with the 25\,mm extension driven by the controller~\eqref{eq:Hinf-ctl} along an elliptical reference trajectory. Controller performance was evaluated using a half-ellipse and quarter-ellipse reference trajectory as well, to verify the ability of the controlled system to track straight lines and sharp turns (Figs.~\ref{fig:Control_outputs}b and~\ref{fig:Control_outputs}c). Figures~\ref{fig:Control_outputs}d, ~\ref{fig:Control_outputs}e ,and~\ref{fig:Control_outputs}f show the controlled position of the 9\,mm extension's tip using the same reference trajectories. Figures~\ref{fig:Control_outputs}g and~\ref{fig:Control_outputs}h illustrate the time evolution of the $x$ and $y$ coordinates separately for the two extensions.
-
-\begin{table}[t]
-\centering
-\caption{(N)MAE of $H_{\infty}$ controller performance in experiment.}\vspace{-0.25cm}
-\begin{tabular}{c c c c c c c}
-\hline
-\hspace{-2mm} $d$ & Reference & Load & $x$ & $y$ & $x-y$ & \hspace{-2mm} NMAE\\
-\hspace{-2mm} (mm) &  trajectory   & (g)  & (mm)& (mm)& (mm) & \hspace{-2mm}$\%$\\
-\hline
-\hspace{-2mm}25 & Ellipse          & - & 0.123 & 0.042 & 0.131 & \hspace{-2mm}8.1\\
-\hspace{-2mm}25 & Half Ellipse     & - & 0.119 & 0.023 & 0.123 & \hspace{-2mm}7.6\\
-\hspace{-2mm}25 & Quarter Ellipse  & - & 0.112 & 0.026 & 0.119 & \hspace{-2mm}7.4\\
-\hspace{-2mm}9 & Ellipse           & - & 0.088 & 0.033 & 0.099 & \hspace{-2mm}7.4\\
-\hspace{-2mm}9 & Half Ellipse      & - & 0.129 & 0.058 & 0.132 & \hspace{-2mm}9.8\\
-\hspace{-2mm}9 & Quarter Ellipse   & - & 0.161 & 0.061 & 0.171 & \hspace{-2mm}12.8\\
-\hspace{-2mm}25 & Ellipse          & 1 & 0.140 & 0.022 & 0.144 & \hspace{-2mm}8.9\\
-\hspace{-2mm}25 & Ellipse          & 2 & 0.162 & 0.021 & 0.162 & \hspace{-2mm}10.1\\
-\hspace{-2mm}25 & Ellipse          & 3 & 0.164 & 0.022 & 0.164 & \hspace{-2mm}10.2\\ 
-\hline
-\end{tabular}
-\label{table:control}
-\vspace{-4mm}
-\end{table}
-
-%-----------------------------------
-\begin{figure*}[t]
-\centering
-{\includegraphics[width=\textwidth]{Starfish_tube_feet_application_8.pdf}}
-\caption[Control of four 9\,mm manipulators in series for payload transport]{Control of four 9\,mm manipulators in series for payload transport, in a manner similar to food transport by starfish tube feet. (a) The manipulators, numbered 1 to 4 from left to right, are commanded to first follow the cyan dashed lines from their initial positions to their starting positions on the reference trajectories, and then follow these  trajectories, shown as red dashed lines. Manipulators 1 and 3 have a phase shift of $180^\circ$ compared to manipulators 2 and 4. (b) Illustration of a starfish-inspired robotic platform with four hydrogel-actuated manipulators. (c) Real starfish transporting a clam on its tube feet. (d) Displacement of the payload as a function of time for different reference trajectories and load weights. (e) Array of four manipulators functioning as described in (a) to transport the payload. Image was taken when the manipulators completed the first gait cycle. The payload is a clear flat acrylic plate with a black square on its left side. The positions of the manipulator tips are marked by triangles at their initial locations, circles at the start of the gait cycle, squares at the middle of the gait cycle, and diamonds at the end of the gait cycle.
-}
-    \label{fig:Control_payload}
-\end{figure*}
-In order to further characterize our system's actuation capabilities, the manipulator's trajectory-tracking performance under load was studied, as shown in Fig.~\ref{fig:Control_outputs}i. Loads (stainless steel nuts) weighing 1\,g, 2\,g, and 3\,g were placed on the 25\,mm extension, as shown in Fig.~\ref{fig:Path}b. The manipulator was commanded to follow the same elliptical trajectory as in the unloaded case. The results show that the addition of a weight of up to 3\,g increases the trajectory tracking NMAE from 8.1$\%$ to 10.2$\%$ (see Table~\ref{table:control}). Despite the increase in error, each actuator is still able to function under a load as large as 12.5 times its own weight (0.12\,g).
-% Tracking the given trajectories requires each SVA to cycle through multiple phases of heating and cooling. As can be observed in Fig.~\ref{fig:Control_outputs}, tracking error is evident for each reference trajectory.The largest tracking error in all cases occurs along a portion of the trajectory in the lower left quadrant of the plots, in which, both SVAs are cooling. Accounting for the different time-constants of the SVAs in heating and cooling states, this transition is not well-characterized in our model obtained by black-box system identification, which results in less accurate trajectory tracking along this portion. We believe, therefore, that the largest difference between our simulated and experimental results can be attributed to the model's inability to characterize the state of SVA heating or cooling. 
-As shown in Table~\ref{table:control}, the experimental NMAE values are higher than the simulation values, but remain below $15$\%.
-
-
-\subsection{Payload transport application} \label{sec:payload}
-Inspired by the way starfish transport food using their tube feet (Figs.~\ref{fig:Control_payload}b and~\ref{fig:Control_payload}c)~\cite{Kerkut1953,Pentreath1970}, we configured an array of four 9\,mm manipulators, as shown in Fig.~\ref{fig:Control_payload}e, and applied the proposed $H_\infty$-optimal controller in~\eqref{eq:Hinf-ctl} and Fig.~\ref{fig:control_block}b to each manipulator in order to transport a payload across their tips. The payload being transported is a clear acrylic plate. The manipulators are commanded to track reference trajectories as depicted in Fig.~\ref{fig:Control_payload}a, with phase shifts between adjacent manipulators. The payload moves to the right as the manipulators complete repeated cycles of the reference trajectories (``gait cycles''), as shown in Figs.~\ref{fig:Control_payload}d and~\ref{fig:Control_payload}e. The data from Fig.~\ref{fig:Control_payload}d on the duration of one gait cycle and the payload displacement in each tested scenario including the ones with extra added loads on the payload are reported in Table~\ref{table:table_Payload displacement}. A video of the payload transport is attached as supplementary material. The payload's position is recorded but not controlled in this exemplar application, since our goal in this paper was to demonstrate a use-case for trajectory tracking control. However, many other platforms and applications are possible, including bio-inspired ones~\cite{Doroudchi2020}. Through this example, we have demonstrated how trajectory tracking control of systems with soft actuators, when applied to even simple platforms such as this 2-DOF manipulator, may be used to complete complex tasks such as object transport when used in parallel. This type of design can be used to simplify and decouple the control structures in future applications to reduce computational expense.
-
-\begin{table}[t]
-\centering
-\caption{Payload displacement $\Delta X$ with different reference trajectories for the manipulators.}
-\label{table:table_Payload displacement}
-\begin{tabular}{c c c c}
-
-% & & \\ 
-\hline
-Reference & Payload weight & Time for one & $\Delta X$ after five \\
-trajectory & + load (g) & gait cycle (s) & gait cycles (mm)\\
-\hline
-Ellipse         & 2.7   & 60  & 5.66\\
-Half-ellipse    & 2.7   & 50  & 4.55\\
-Quarter-ellipse & 2.7   & 40  & 7.10\\
-Ellipse         & 2.7+1 & 60  & 4.75\\
-Ellipse         & 2.7+2 & 60  & 4.84\\
-Ellipse         & 2.7+3 & 60  & 2.30\\
-% Open-loop  & 2.7~g & N/A & 2.04~mm\\
-\hline
-\end{tabular}
-\end{table}
+%\begin{figure*}[t]
+%\centering
+    %\includegraphics[width=\textwidth]{Control_Picture_New_Ten.pdf}
+    %\caption[Tracking reference and experimental trajectories of  manipulator tip]{Tracking reference and experimental trajectories of  manipulator tip in Cartesian coordinates. 25\,mm manipulator tracking: (a) an elliptical trajectory; (b) a half-ellipse; (c) a quarter-ellipse. 9\,mm manipulator tracking: (d) an elliptical trajectory; (e) a half-ellipse; (f) a quarter-ellipse. (g) 25\,mm manipulator tracking an elliptical trajectory: $x,y$ coordinates over time separately. (h) 9\,mm manipulator tracking an elliptical trajectory: $x,y$ coordinates over time separately. (i) 25\,mm manipulator tracking an elliptical trajectory under 1\,g, 2\,g, and 3\,g.}
+    %\label{fig:Control_outputs}
+%\end{figure*}
+%%--------------------------------------------------------------------
+%\subsection{Experimental validation of $H_\infty$-optimal controller}
+%
+%Since the $H_\infty$-optimal controller exhibited higher tracking accuracy in simulation both with and without disturbance and noise, it was selected for experimental implementation. Using the designed control gain for $H_\infty$, we have implemented the output-feedback tracking framework depicted in Fig.~\ref{fig:control_block}b on the hydrogel-based manipulator (Fig.~\ref{fig:setup}). Half-ellipse and quarter-ellipse paths were also used as reference trajectories. Sources of noise in the experiment arise in the testing environment and vision-based feedback. Disturbances include modeling and manufacturing errors.  The MAE and NMAE values are reported for one cycle per trajectory in Table~\ref{table:control}, though three repeating cycles per trajectory were collected.
+%
+%Figure~\ref{fig:Control_outputs}a compares the trajectory of a manipulator with the 25\,mm extension driven by the controller Equation~\eqref{eq:Hinf-ctl} along an elliptical reference trajectory. Controller performance was evaluated using a half-ellipse and quarter-ellipse reference trajectory as well, to verify the ability of the controlled system to track straight lines and sharp turns (Figs.~\ref{fig:Control_outputs}b and~\ref{fig:Control_outputs}c). Figures~\ref{fig:Control_outputs}d, ~\ref{fig:Control_outputs}e ,and~\ref{fig:Control_outputs}f show the controlled position of the 9\,mm extension's tip using the same reference trajectories. Figures~\ref{fig:Control_outputs}g and~\ref{fig:Control_outputs}h illustrate the time evolution of the $x$ and $y$ coordinates separately for the two extensions.
+%
+%\begin{table}[t]
+%\centering
+%\caption{(N)MAE of $H_{\infty}$ controller performance in experiment.}\vspace{-0.25cm}
+%\begin{tabular}{c c c c c c c}
+%\hline
+%\hspace{-2mm} $d$ & Reference & Load & $x$ & $y$ & $x-y$ & \hspace{-2mm} NMAE\\
+%\hspace{-2mm} (mm) &  trajectory   & (g)  & (mm)& (mm)& (mm) & \hspace{-2mm}$\%$\\
+%\hline
+%\hspace{-2mm}25 & Ellipse          & - & 0.123 & 0.042 & 0.131 & \hspace{-2mm}8.1\\
+%\hspace{-2mm}25 & Half Ellipse     & - & 0.119 & 0.023 & 0.123 & \hspace{-2mm}7.6\\
+%\hspace{-2mm}25 & Quarter Ellipse  & - & 0.112 & 0.026 & 0.119 & \hspace{-2mm}7.4\\
+%\hspace{-2mm}9 & Ellipse           & - & 0.088 & 0.033 & 0.099 & \hspace{-2mm}7.4\\
+%\hspace{-2mm}9 & Half Ellipse      & - & 0.129 & 0.058 & 0.132 & \hspace{-2mm}9.8\\
+%\hspace{-2mm}9 & Quarter Ellipse   & - & 0.161 & 0.061 & 0.171 & \hspace{-2mm}12.8\\
+%\hspace{-2mm}25 & Ellipse          & 1 & 0.140 & 0.022 & 0.144 & \hspace{-2mm}8.9\\
+%\hspace{-2mm}25 & Ellipse          & 2 & 0.162 & 0.021 & 0.162 & \hspace{-2mm}10.1\\
+%\hspace{-2mm}25 & Ellipse          & 3 & 0.164 & 0.022 & 0.164 & \hspace{-2mm}10.2\\ 
+%\hline
+%\end{tabular}
+%\label{table:control}
+%\vspace{-4mm}
+%\end{table}
+%
+%%-----------------------------------
+%\begin{figure*}[t]
+%\centering
+%{\includegraphics[width=\textwidth]{Starfish_tube_feet_application_8.pdf}}
+%\caption[Control of four 9\,mm manipulators in series for payload transport]{Control of four 9\,mm manipulators in series for payload transport, in a manner similar to food transport by starfish tube feet. (a) The manipulators, numbered 1 to 4 from left to right, are commanded to first follow the cyan dashed lines from their initial positions to their starting positions on the reference trajectories, and then follow these  trajectories, shown as red dashed lines. Manipulators 1 and 3 have a phase shift of $180^\circ$ compared to manipulators 2 and 4. (b) Illustration of a starfish-inspired robotic platform with four hydrogel-actuated manipulators. (c) Real starfish transporting a clam on its tube feet. (d) Displacement of the payload as a function of time for different reference trajectories and load weights. (e) Array of four manipulators functioning as described in (a) to transport the payload. Image was taken when the manipulators completed the first gait cycle. The payload is a clear flat acrylic plate with a black square on its left side. The positions of the manipulator tips are marked by triangles at their initial locations, circles at the start of the gait cycle, squares at the middle of the gait cycle, and diamonds at the end of the gait cycle.
+%}
+    %\label{fig:Control_payload}
+%\end{figure*}
+%In order to further characterize our system's actuation capabilities, the manipulator's trajectory-tracking performance under load was studied, as shown in Fig.~\ref{fig:Control_outputs}i. Loads (stainless steel nuts) weighing 1\,g, 2\,g, and 3\,g were placed on the 25\,mm extension, as shown in Fig.~\ref{fig:Path}b. The manipulator was commanded to follow the same elliptical trajectory as in the unloaded case. The results show that the addition of a weight of up to 3\,g increases the trajectory tracking NMAE from 8.1$\%$ to 10.2$\%$ (see Table~\ref{table:control}). Despite the increase in error, each actuator is still able to function under a load as large as 12.5 times its own weight (0.12\,g).
+%% Tracking the given trajectories requires each SVA to cycle through multiple phases of heating and cooling. As can be observed in Fig.~\ref{fig:Control_outputs}, tracking error is evident for each reference trajectory.The largest tracking error in all cases occurs along a portion of the trajectory in the lower left quadrant of the plots, in which, both SVAs are cooling. Accounting for the different time-constants of the SVAs in heating and cooling states, this transition is not well-characterized in our model obtained by black-box system identification, which results in less accurate trajectory tracking along this portion. We believe, therefore, that the largest difference between our simulated and experimental results can be attributed to the model's inability to characterize the state of SVA heating or cooling. 
+%As shown in Table~\ref{table:control}, the experimental NMAE values are higher than the simulation values, but remain below $15$\%.
+%
+%
+%\subsection{Payload transport application} \label{sec:payload}
+%Inspired by the way starfish transport food using their tube feet (Figs.~\ref{fig:Control_payload}b and~\ref{fig:Control_payload}c)~\cite{Kerkut1953,Pentreath1970}, we configured an array of four 9\,mm manipulators, as shown in Fig.~\ref{fig:Control_payload}e, and applied the proposed $H_\infty$-optimal controller in~\eqref{eq:Hinf-ctl} and Fig.~\ref{fig:control_block}b to each manipulator in order to transport a payload across their tips. The payload being transported is a clear acrylic plate. The manipulators are commanded to track reference trajectories as depicted in Fig.~\ref{fig:Control_payload}a, with phase shifts between adjacent manipulators. The payload moves to the right as the manipulators complete repeated cycles of the reference trajectories (``gait cycles''), as shown in Figs.~\ref{fig:Control_payload}d and~\ref{fig:Control_payload}e. The data from Fig.~\ref{fig:Control_payload}d on the duration of one gait cycle and the payload displacement in each tested scenario including the ones with extra added loads on the payload are reported in Table~\ref{table:table_Payload displacement}. A video of the payload transport is attached as supplementary material. The payload's position is recorded but not controlled in this exemplar application, since our goal in this chapter was to demonstrate a use-case for trajectory tracking control. However, many other platforms and applications are possible, including bio-inspired ones~\cite{Doroudchi2020}. Through this example, we have demonstrated how trajectory tracking control of systems with soft actuators, when applied to even simple platforms such as this 2-DOF manipulator, may be used to complete complex tasks such as object transport when used in parallel. This type of design can be used to simplify and decouple the control structures in future applications to reduce computational expense.
+%
+%\begin{table}[t]
+%\centering
+%\caption{Payload displacement $\Delta X$ with different reference trajectories for the manipulators.}
+%\label{table:table_Payload displacement}
+%\begin{tabular}{c c c c}
+%
+%% & & \\ 
+%\hline
+%Reference & Payload weight & Time for one & $\Delta X$ after five \\
+%trajectory & + load (g) & gait cycle (s) & gait cycles (mm)\\
+%\hline
+%Ellipse         & 2.7   & 60  & 5.66\\
+%Half-ellipse    & 2.7   & 50  & 4.55\\
+%Quarter-ellipse & 2.7   & 40  & 7.10\\
+%Ellipse         & 2.7+1 & 60  & 4.75\\
+%Ellipse         & 2.7+2 & 60  & 4.84\\
+%Ellipse         & 2.7+3 & 60  & 2.30\\
+%% Open-loop  & 2.7~g & N/A & 2.04~mm\\
+%\hline
+%\end{tabular}
+%\end{table}
 
 %------------------------------------------------------
 \subsection{prove that the ${H_{\infty}}$ gain is bounded}
@@ -348,7 +348,7 @@ We can prove that the ${H_{\infty}}$ gain is bounded using the bounded-real lemm
 The proof that statement 1 implies 2 requires the Hamiltonian, and the proof that statement 2 implies 1 uses the global stability conditions of the Lyapunov function~\cite{Boyd1994}.
 \section{Conclusion}
 
-In this paper, we addressed a trajectory-tracking problem for a millimeter-scale 2-DOF manipulator with soft hydrogel-based actuators. We defined a linear state-space model of the manipulator and fit the matrices of this model using input-output measurement black-box identification. This state-space representation enables the implementation of a range of controllers on the manipulator; in this paper, the performance of an observer-based controller was compared in simulation to that of an $H_{\infty}$-optimal controller in an output-feedback framework with and without noise and disturbance. We showed experimentally that different versions of the manipulator are able to track various reference trajectories, even under load, using the $H_{\infty}$-optimal controller.
+In this chapter, we addressed a trajectory-tracking problem for a millimeter-scale 2-DOF manipulator with soft hydrogel-based actuators. We defined a linear state-space model of the manipulator and fit the matrices of this model using input-output measurement black-box identification. This state-space representation enables the implementation of a range of controllers on the manipulator; in this chapter, the performance of an observer-based controller was compared in simulation to that of an $H_{\infty}$-optimal controller in an output-feedback framework with and without noise and disturbance. We showed experimentally that different versions of the manipulator are able to track various reference trajectories, even under load, using the $H_{\infty}$-optimal controller.
 
 Our ability to coordinate independently controllable soft actuators with complex internal dynamics in a robotic system demonstrates progress in the real-time, closed-loop control of mechanisms with this type of actuator. We expect that researchers will be able to adapt this approach across similar stimuli-responsive materials as they are developed and optimized. This will also permit SVAs, manufactured from a variety of materials, to be used for controlled grasping, manipulation, and locomotion tasks across a variety of new soft robotic platforms, such as octopus-inspired continuum robots~\cite{Doroudchi2020}. Our approach can be used to design and implement decentralized controllers on segmented mechanisms with distributed hydrogel actuators, as discussed in our related work~\cite{Doroudchi2020,Doroudchi2019}.
 

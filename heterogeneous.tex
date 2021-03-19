@@ -151,7 +151,7 @@ which results in a stress mismatch. To balance these stresses, the beam bends in
 We will henceforth refer to this structure as a `gripper'. %for future reference. 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.7\textwidth]{bilayer.pdf}
+\includegraphics[width=0.6\textwidth]{bilayer.pdf}
 \caption[Realization of structural inhomogeneity]{Realization of structural inhomogeneity through patterning of hydrogels with different swelling properties. \textbf{i)} A two-material, two-region structure made of HG00 and HG03 regions \textbf{ii,iii)} The bilayer structure can almost bend into a circle when the surrounding water bath temperature is raised above or below the transition temperature of PNIPAAm hydrogel (~32\,$^{\circ}$C)}
 \label{fig:bilayer}
 \end{figure}
@@ -161,7 +161,7 @@ A second example uses HG00 and HG02 hydrogels again, but this time with
 8 material domains, as shown in \firstsubfigref{fig:hardcoded}{(i-iii)}. The beams in these figures consist of different arrangements of HG00 and HG02 voxels, and as a result exhibit different deformations when subjected to a homogeneous temperature change in the surrounding water from 20\,$^{\circ}$C to 45\,$^{\circ}$C (for details, see Movie S1 in the Supporting Information)\\
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=\textwidth]{hardcoded.pdf}
+\includegraphics[width=0.8\textwidth]{hardcoded.pdf}
 \caption[Using SVAs to increase deformation domains]{Realization of structural inhomogeneity through patterning of hydrogels with different swelling properties. \textbf{i-iii)} Increasing the number of material domains in the structure enables it to achieve more diverse shapes. When the surrounding water bath temperature is increased, each structure reconfigures into a different shape, depending on its arrangement of SVA-I units.}
 \label{fig:hardcoded}
 \end{figure}
@@ -184,72 +184,65 @@ The geometric configuration of material domains in both structures are the same.
 \end{figure}
 
 \section{On-demand Shape Morphing}
-For applications in dynamic, unstructured environments, such as underwater robotic exploration, it is less useful to pre-program complex trajectories into a structure, since global stimulus control is not always feasible. To enable on-demand thermoresponsive shape morphing in these conditions, SVA-II units may be employed, as depicted in \subfigref{fig:1}{B(ii)}. The 40×11×5 mm structure shown in \firstsubfigref{fig:4}{A} was assembled using 16 SVA-II units. These SVAs are made of HG03, which exhibits the highest $DR$ observed across all recipes (\subfigref{fig:2}{E}). The first example of on-demand shape morphing is illustrated in \subfigref{fig:4}{B(i)}, in which the structure morphs into an `S' shape and a `reverse S' shape when particular SVAs are actuated via commands from a microcontroller. %where the same structure morphs into `S' and `reverse S' shapes based on commands from a microcontroller. 
-A second example of on-demand shape morphing is illustrated in \subfigref{fig:4}{B(ii)}; it highlights how the curvature of a structure may be varied as a function of the voltage supplied to the SVA-II units.\\
+For applications in dynamic, unstructured environments, such as underwater robotic exploration, it is less useful to pre-program complex trajectories into a structure, since global stimulus control is not always feasible. To enable on-demand thermoresponsive shape morphing in these conditions, SVA-II units may be employed, as depicted in \subfigref{fig:heterogeneous}{(ii)}. The 40×11×5 mm structure shown in \firstsubfigref{fig:16svaArm}{A} was assembled using 16 SVA-II units. These SVAs are made of HG03, which exhibits the highest $DR$ observed across all recipes (\subfigref{fig:forcedisp}{B}). The first example of on-demand shape morphing is illustrated in \subfigref{fig:16svaArm}{B(i)}, in which the structure morphs into an `S' shape and a `reverse S' shape when particular SVAs are actuated via commands from a microcontroller. %where the same structure morphs into `S' and `reverse S' shapes based on commands from a microcontroller. 
+A second example of on-demand shape morphing is illustrated in \subfigref{fig:16svaArm}{B(ii)}; it highlights how the curvature of a structure may be varied as a function of the voltage supplied to the SVA-II units.\\
+
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\textwidth]{16svaArm.pdf}
+\caption[A miniature soft robot consisting of 16 addressable SVA-II units]{A miniature heterogeneous structure consisting of 16 addressable SVA-II units. \textbf{A)} SVA numbering scheme and the coordinate system used to measure the position of the point $p$ and the angle $\theta$ of the end plate. \textbf{B)} On-demand shape morphing of the structure. i) The structure morphs from an `S' shape to a `reverse S' shape when particular SVAs are activated. ii) The structure's radius of curvature ($\mathcal{R}$) depends on the activation voltage ($V$) applied to SVAs 1-8.}
+\label{fig:16svaArm}
+\end{figure}
 
 Moving from static to dynamic on-demand shape changes requires time-varying activation of SVAs.
-As demonstrated in \subfigref{fig:4}{C}, the choice of SVA actuation pattern can influence the end-effector trajectory of a structure. In this experiment, SVAs 1 thorough 8 are activated according to patterns denoted by P1 and P2.
-% in \subfigref{fig:4}{D}. 
-Each SVA is activated with maximum voltage (3.7\,V) for 15\,s before the next SVA is activated, as shown in \subfigref{fig:4}{C} 
-and Movie S3 in the Supporting Information.\\  
-
-
-%the assigned tasks are achievable with our technique.
-% Therefore this SVA assembly can successfully operate in unstructured environments, in which working conditions may change during operation. The details of this structure in interacting with the environment can be seen in \note{video S}. 
-% In each situation, different trajectories should be followed by the tip of the manipulator denoted by point p in the coordinate system O in \subfigref{fig:4}{A}. These trajectories are shown in \subfigref{fig:4}{E}. 
-% vary only slightly and the manipulator should be capable of performing precise movements in order to follow such trajectories. 
-% \subfigref{fig:4}{A}
-
-%In the previous demonstration, only on and off states (corresponding to an activation voltage of 0 $V$ and 3.7 $V$ respectively\note{on and off or off and on?}) were used to demonstrate complex trajectory generation. 
-%While as in 
-While complex motion of SVA-II-based structures may be achieved using simple on 
-(3.7\,V) and off (0\,V) activation signals, as discussed,
-intermediate voltages may also be applied to further enhance the complexity of shape change in soft heterogeneous structures. To demonstrate this, phase-shifted sinusoidal voltages were used as activation signals to generate longitudinal traveling waves in the structure. 
-% \spr{\sout{selected} (I thought that only every other pair was activated, but the caption implies that some voltage plots were not shown, so were all SVAs except 4 and 12 activated?)}
-A pair of SVAs (comprising a SVA on the left and its adjucent SVA on the right) are activated using the same sinusoidal signal; SVAs 4 and 12 were not activated, to serve as a geometric reference point.
-% All pairs of SVAs, except SVAs 4 and 12, 
- The sinusoidal voltages applied to every SVA pair were $\frac{\pi}{8}~rad$ out of phase with the voltages applied to its nearest active SVA pair. As an example, sinusoidal signals for four SVA pairs are shown in  \subfigref{fig:4}{D}. 
-%  (The figure shows that there is a phase shift of $\pi/8$ between every {\it other} pair of SVAs. Is it between adjacent pairs of SVAs? Or is the phase shift $\pi/16$ between adjacent pairs?)}
-%compared to their adjacent pair. 
-%SVA pair  comprising
- A contraction wave was formed as a result of this input signal pattern and traveled along the length of the structure, as illustrated in \subfigref{fig:4}{E}. Movie S4 in the Supporting Information shows in detail how these waves are generated and propagated along the structure. Every point on the structure oscillates in a sinusoidal manner as the wave passes through it. The midpoint of the inactive SVA pair, which is highlighted by a yellow square in \subfigref{fig:4}{E}, is shown as a reference point on the structure. Additionally, by sending the sinusoidal signals to SVAs located on only one side of the structure, for example SVAs 1 through 8, transverse traveling waves were generated in the structure (Movie S4, Supporting Information).
-% The sequence of electrical control signals used to operate the structure in performing the two tasks are shown in \subfigref{fig:4}{\note{?}}.
-The ability to control the trajectory of the structure's end-effector, as shown in \subfigref{fig:4}{C}, is essential to successful functioning of the device in unstructured environments, in which working conditions may change during operation.
-% As an application, We may furthermore show how the sequential activation can be used to create different trajectories followed by the tip of the structures on-demand using resulting in successful operation in unstructured environments, in which working conditions may change during operation. 
-%As seen in the upper row of \subfigref{fig:4}{F}, \dma{SVA-II structures may \sout{this structure can}} be \dma{\sout{commanded by the control signal from a microcontroller to follow a specific trajectory necessary to avoid collisions with obstacles placed within its workspace}}\note{update subfig refs}. 
-As depicted in \subfigref{fig:4}{F},  time-sequenced switching of selected SVA-II units within the structure makes it possible to accomplish various robotic tasks such as collision avoidance (top row) and object transport (bottom row).
-% Based on activation signal of each SVA unit, different trajectories are followed by end effector $p$ in coordinate system O (as denoted in \subfigref{fig:4}{A}) resulting in the end effector passing over an object and then pushing it left. 
-The trajectory of the end point $p$ and the angle $\theta$ of the end plate over time ($p$ and $\theta$ are defined in \subfigref{fig:4}{A}) during each of these two tasks %these two motions
-is displayed  in \subfigref{fig:4}{G}. The on-demand control of reorientation and translation of the end-effector made it possible to complete these two tasks, %this two-part task possible, 
-indicating that highly redundant time-varying deformations in heterogeneous structures are achievable using individually addressable SVA-II units (Movie S5, Supporting Information).
-% necessary for successful completion of complex tasks such as this.
-\begin{figure}[t]
+As demonstrated in \firstfigref{fig:armTrajOnOff}, the choice of SVA actuation pattern can influence the end-effector trajectory of a structure. In this experiment, SVAs 1 thorough 8 are activated according to patterns denoted by P1 and P2. Each SVA is activated with maximum voltage (3.7\,V) for 15\,s before the next SVA is activated.
+\begin{figure}[!ht]
 \centering
-\includegraphics[width=\textwidth]{fig4.pdf}
-\caption[A miniature soft robot consisting of 16 addressable SVA-II units]{A miniature heterogeneous structure consisting of 16 addressable SVA-II units. \textbf{A)} SVA numbering scheme and the coordinate system used to measure the position of the point $p$ and the angle $\theta$ of the end plate. \textbf{B)} On-demand shape morphing of the structure. i) The structure morphs from an `S' shape to a `reverse S' shape when particular SVAs are activated. 
-%by activating different SVAs. 
-ii) The structure's radius of curvature ($\mathcal{R}$) depends on the activation voltage ($V$) applied to SVAs 1-8. \textbf{C)} Dynamic shape changes are implemented by sequentially activating SVAs. In this case, SVAs 1 through 8 are activated according to the patterns labeled P1 and P2. The trajectory followed by the tip of the structure (shown at the bottom) can thus be adjusted on-demand. For details, see Movie S6 in the Supporting Information. \textbf{D)} 
-% Taking advantage of the simplicity of creating complex electrical control signals as opposed to other signals such as light, using a microcontrollerThe complex 
-Normalized sinusoidal voltages used to create longitudinal traveling waves in the structure. The voltages applied to 8 of the 16 SVAs are shown here. The SVAs are activated in pairs, and the voltage applied to each SVA pair is $\frac{\pi}{8}~rad$ out of phase with respect to the voltage applied to the next active pair. 
-% \spr{(or is the phase shift $\pi/8$ between every other pair? see my comment in the main text)}
-\textbf{E)} The longitudinal traveling wave as it propagates through the structure. One SVA pair, indicated by the yellow square, is kept inactive in order to serve as a reference point. For details, refer to Movie S7 in the Supporting Information. \textbf{F)} Example usage of heterogeneous structures with on-demand control of deformation. The structure can avoid collisions with objects or transport them, depending on the sequence of voltage commands from the microcontroller unit. \textbf{G)} Trajectory of the point $p$ on the tip of the structure as it first avoids and then transports the object. The inset shows the angle $\theta$ of the end plate as a function of time.}
-% In comparison to structures with hard-coded deformations presented in \figref{fig:3}, 
-% of the manipulator can follow arbitrary trajectories according to the requirements of the task. The top row is a time-lapse of the manipulator trying to avoid the obstacle. Bottom row is a time-lapse of the manipulator trying to move the object to the left. b) A close-up view of the manipulator with end point p, end plate angle θ and coordinate system used for measuring them. c) The trajectory followed by point p is shown in the middle. Time-based plots of the x and y coordinates of point p and end plate angle θ are shown at the top and bottom respectively.}
-\label{fig:4}
+\includegraphics[width=0.8\textwidth]{armTrajOnOff.pdf}
+\caption[Dynamic shape changes by On/Off signals]{Dynamic shape changes are implemented by sequentially activating SVAs. In this case, SVAs 1 through 8 are activated according to the patterns labeled P1 and P2. The trajectory followed by the tip of the structure (shown at the bottom) can thus be adjusted on-demand. For details, see Movie S6 in the Supporting Information.}
+\label{fig:armTrajOnOff}
 \end{figure}
+
+While complex motion of SVA-II-based structures may be achieved using simple on (3.7\,V) and off (0\,V) activation signals, as discussed, intermediate voltages may also be applied to further enhance the complexity of shape change in soft heterogeneous structures. To demonstrate this, phase-shifted sinusoidal voltages were used as activation signals to generate longitudinal traveling waves in the structure. A pair of SVAs (comprising a SVA on the left and its adjacent SVA on the right) are activated using the same sinusoidal signal; SVAs 4 and 12 were not activated, to serve as a geometric reference point. The sinusoidal voltages applied to every SVA pair were $\frac{\pi}{8}~rad$ out of phase with the voltages applied to its nearest active SVA pair. As an example, sinusoidal signals for four SVA pairs are shown in  \firstfigref{fig:sineWaves}. A contraction wave was formed as a result of this input signal pattern and traveled along the length of the structure, as illustrated in \firstfigref{fig:4peristaltic}. Movie S4 in the Supporting Information shows in detail how these waves are generated and propagated along the structure. Every point on the structure oscillates in a sinusoidal manner as the wave passes through it. The midpoint of the inactive SVA pair, which is highlighted by a yellow square in \figref{fig:peristaltic}, is shown as a reference point on the structure. Additionally, by sending the sinusoidal signals to SVAs located on only one side of the structure, for example SVAs 1 through 8, transverse traveling waves were generated in the structure (Movie S4, Supporting Information).
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.7\textwidth]{sineWaves.pdf}
+\caption[Normalized sinusoidal voltages]{Normalized sinusoidal voltages used to create longitudinal traveling waves in the structure. The voltages applied to 8 of the 16 SVAs are shown here. The SVAs are activated in pairs, and the voltage applied to each SVA pair is $\frac{\pi}{8}~rad$ out of phase with respect to the voltage applied to the next active pair.}
+\label{fig:sineWaves}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\textwidth]{peristaltic.pdf}
+\caption[The longitudinal traveling wave as it propagates through the structure]{The longitudinal traveling waves generated as a result of activation voltages shown in Figure~\ref{fig:sineWaves}. One SVA pair, indicated by the yellow square, is kept inactive in order to serve as a reference point. }
+\label{fig:peristaltic}
+\end{figure}
+
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\textwidth]{unstructured.pdf}
+\caption[Dealing with unstructured environments]{Example usage of hyper-redundancy in manipulator with on-demand control of deformation. The structure can avoid collisions with objects or transport them, depending on the sequence of voltage commands from the microcontroller unit.}
+\label{fig:unstructured}
+\end{figure}
+
+The ability to control the trajectory of the structure's end-effector, as shown in \figref{fig:armTrajOnOff}, is essential to successful functioning of the device in unstructured environments, in which working conditions may change during operation. As depicted in \firstfigref{fig:unstructured}, time-sequenced switching of selected SVA-II units within the structure makes it possible to accomplish various robotic tasks such as collision avoidance (top row) and object transport (bottom row). The trajectory of the end point $p$ and the angle $\theta$ of the end plate over time ($p$ and $\theta$ are defined in \firstfigref{fig:unstructuredTraj}) during each of these two tasks is displayed  in \subfigref{fig:4}{G}. The on-demand control of reorientation and translation of the end-effector made it possible to complete these two tasks, indicating that highly redundant time-varying deformations in heterogeneous structures are achievable using individually addressable SVA-II units.
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.8\textwidth]{unstructuredTraj.pdf}
+\caption[On-demand creation of trajectories in unstructured environments]{Trajectory of the point $p$ on the tip of the structure as it first avoids and then transports the object. The inset shows the angle $\theta$ of the end plate as a function of time.}
+\label{fig:unstructuredTraj}
+\end{figure}
+
 
 \section{Conclusions}
 To summarize, we have developed the following tools to increase the variety and complexity of shape transformations in heterogeneous hydrogel structures: a voxel-based assembly design for patterning material domains, and a unique mixed-solvent photopolymerization hydrogel synthesis method for tuning swelling properties of the voxels. These tools offer a higher number of design parameters, namely, the configuration of the voxels, the material properties of each voxel, and the activation voltage of each voxel (in the case of SVA-II). This rich set of design parameters can be specified to build structures that meet the requirements of a variety of tasks. The resulting heterogeneous structures can generate complex time-varying trajectories and traveling waves, enabling them to interact with unstructured environments in ways that could not be realized in bulk hydrogels or that would require sophisticated integration and manufacturing.\\
 
 The simplicity of these tools advances the utility of hydrogel structures in robotics applications in a meaningful way because they can be used in robotics research laboratories that lack sophisticated material processing facilities.
-% The impact of our work lies in bridging the gap between material science and soft robotic fields. Currently, there are several hydrogels with desirable properties such as fast response and high strength which due to their sophisticated preparation process and lack of proper manufacturing techniques, are hard to be used by soft roboticists. Using methods presented in this paper, these hydrogels can be made into voxel building blocks by material processing labs and supplied to robotic researchers who can put them in different soft robotic applications. 
-% Due to the wide range of tunable properties enabled by our hydrogel synthesis technique, 
-% A variety of heterogeneous structures can be produced that transform into a unique shape, depending on their hard-coded material domains. 
-% We have created structures that create more complex configurations and trajectories.  this is facilitated by the approach of using multiple materials and locally controlling the deformation.  
-% this backed-up by a facile recipe, together enabled the creation of heterogeneous hydrogel structures that show more complex pre-programmed as well as on-demand deformations.
-% These deformations are more complex because we have more control over material distribution by thoughtful placement of different voxels into an assembly, thereby creating heterogeneity in the structure (SVA-I). Addressable voxels that take advantage of an embedded Joule heater enable on-demand deformations, removing the need for creating multiple hard-coded structures to perform different tasks (SVA-II). One structure can perform different tasks. Our recipe also allows facile mass production of voxels as well as tuning the material properties of each voxel.
-%Limited supply of our developed soft voxel actuators for research purposes are also available upon request at www\ldots{}.
-While this paper focuses specifically on PNIPAAm hydrogel voxels, soft and rigid voxels made of other types of responsive or non-responsive materials can also be incorporated into heterogeneous assemblies. Closed-loop control of the deformation of the structures presented in this paper could be achieved by integrating strain- and force-sensitive voxels, made of similar functional hydrogels, that serve as sensors. In addition, multi-objective optimization across material properties and voxel configurations can be used to design structures with higher force production capacity and %higher 
-energy efficiency. Currently, integrating multiple active degrees of freedom (DOFs) in miniaturized soft robots is challenging due to space limitations. Each SVA can be considered as an active DOF and we have demonstrated that the integration of a high number of SVAs in a small footprint, such as the 16-voxel structure presented in this paper, is possible. To address the challenges of fabricating large-scale 
+
+While this dissertation focuses specifically on PNIPAAm hydrogel voxels, soft and rigid voxels made of other types of responsive or non-responsive materials can also be incorporated into heterogeneous assemblies. Closed-loop control of the deformation of the structures presented in this dissertation could be achieved by integrating strain- and force-sensitive voxels, made of similar functional hydrogels, that serve as sensors. In addition, multi-objective optimization across material properties and voxel configurations can be used to design structures with higher force production capacity and %higher 
+energy efficiency. Currently, integrating multiple active degrees of freedom (DOFs) in miniaturized soft robots is challenging due to space limitations. Each SVA can be considered as an active DOF and we have demonstrated that the integration of a high number of SVAs in a small footprint, such as the 16-voxel structure presented in this chapter, is possible. To address the challenges of fabricating large-scale 
 assemblies consisting of hundreds of voxels, % is still challenging and
 automated methods must be developed for scalable manufacturing and assembly of voxels.
