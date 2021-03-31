@@ -5,13 +5,13 @@
 Due to the nature of the complex spatiotemporal dynamics of stimuli-responsive soft materials, closed-loop control of hydrogel-actuated mechanisms has remained a challenge. This paper demonstrates, for the first time, closed-loop trajectory tracking control in real-time of a millimeter-scale, two degree-of-freedom manipulator via \emph{independently-controllable}, temperature-responsive hydrogel actuators. A linear state-space model of the manipulator is developed from input-output measurement data, enabling the straightforward application of control techniques to the system. The Normalized Mean Absolute Error~(NMAE) between the modeled and measured displacement of the manipulator's tip is below 10\%. We propose an Observer-based controller and a robust $H_{\infty}$-optimal controller and evaluate their 
 % stability and convergence properties. The controllers' 
 performance in a trajectory tracking output-feedback framework, compared with and without sinusoidal disturbances and noise. We demonstrate in simulation that the $H_\infty$-optimal controller, which is computed using Linear Matrix Inequality (LMI) methods, tracks an elliptical trajectory more accurately than the Observer controller and is more robust to disturbances and noise. We also show experimentally that the $H_\infty$-optimal controller can be used to track different trajectories with an NMAE below 15$\%$, even when the manipulator is subject to a 3\,g load, 12.5 times an actuator's weight. Finally, a payload transport scenario is presented as an exemplar application; we demonstrate that an array of four manipulators is capable of moving a payload horizontally by applying the proposed $H_\infty$-optimal trajectory-tracking controller to each manipulator in a decoupled manner.
-\section{Background}
+\section{\capitalisewords{Background}}
 Soft actuators, composed of deformable matter such as fluids, gels, elastomers, and shape memory alloys (SMAs)~\cite{Majidi2014}, are lightweight and noiseless, in contrast to pneumatic systems with pumps and motors. Stimuli-responsive materials have potential applications in micro-manipulation, sensing, optics~\cite{Mantha2019,Qin2019}, and biomedical applications~\cite{Guiseppi-Elie2010}. Hydrogels in particular have the ability to absorb and release water, undergoing reversible volumetric changes that facilitates their use as soft actuators~\cite{Mishra2020}. A variety of hydrogel formulations exist, enabling these materials to change state under different external physical or chemical stimuli~\cite{Peng2018,He2012}. For example, poly(N-isopropylacrylamide), or PNIPAAM, is a commonly used temperature-responsive hydrogel that contracts when heated.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{ConceptDesign6_O.pdf}
-    \caption[Experimental setup for tracking control of a 2-DOF manipulator]{Experimental setup for tracking control of a 2-DOF manipulator with embedded hydrogel Soft Voxel Actuators (SVAs)~\cite{Doroudchi2020}. (a) Illustration of a manipulator in a water-filled tank with a camera for vision-based feedback of the manipulator tip. (b) Camera view of the setup, including a fabricated 
+    \caption[\capitalisewords{Experimental setup for tracking control of a 2-DOF manipulator}]{Experimental setup for tracking control of a 2-DOF manipulator with embedded hydrogel Soft Voxel Actuators (SVAs)~\cite{Doroudchi2020}. (a) Illustration of a manipulator in a water-filled tank with a camera for vision-based feedback of the manipulator tip. (b) Camera view of the setup, including a fabricated 
     manipulator prototype and checkerboard for camera calibration. (c) Illustration of SVA deformation in various activation states (red = on; black = off).}
     \vspace{-0.75cm}
     \label{fig:setup}
@@ -31,17 +31,17 @@ In summary, the contributions of this paper are as follows:
     \item Demonstration of an exemplar payload transport application using an array of four manipulators with this versatile and computationally-inexpensive technique.
 \end{enumerate}
 
-\section{Manipulator Fabrication}
+\section{\capitalisewords{Manipulator Fabrication}}
 
 SVAs are fabricated by embedding small Joule heaters within a mold, temperature-responsive PNIPAAM hydrogel in the shape of a rectangular prism, as illustrated in Fig.~\ref{fig:setup}b and~\ref{fig:setup}c. When an electric potential is applied across the embedded Joule heater, the actuator shrinks uniformly. The manipulator, also shown in Fig.~\ref{fig:setup}b, consists of two SVAs affixed to a 3D-printed T-shaped extension, which serves as the end-effector. A standard PNIPAAM hydrogel precursor solution is used to fabricate the SVAs from thermo-responsive hydrogel, using a recipe described in~\cite{Khodambashi2021}. Each SVA is $8\times4.5\times3$\,mm$^3$ in its fully swollen state, with a total weight of 0.12\,g, including the embedded-Joule heater (10\,$\Omega$ SMD resistor 0805), which is connected to microcontrollers by wires. The T-shaped extension is 3D-printed in nylon using a Markforged M2 3D printer. 
 A circuit board, which serves as the fixed base of the manipulator, is attached to one side of the two SVAs; the T-shaped extension is attached to the other side. The circuit board and extension are attached to the SVAs with superglue to ensure that they remain in contact with the SVAs during the experiments. Since hydrogels must be immersed in water to absorb water when cooling, all experiments are conducted in a tank of deionized (DI), room-temperature water.
 
-\section{Experimental Setup}
+\section{\capitalisewords{Experimental Setup}}
 
 % \spr{(Some of the text in this section was changed from the original version. The new text should be highlighted in blue.)}\rke{Roozbeh would you please compare with the original paper and apply Spring's comment? thanks, Azadeh}
 Figure~\ref{fig:setup} shows the experimental setup used for closed-loop control and tracking of the manipulator's trajectory. A Logitech C930e USB Webcam is placed in front of the tank to send real-time data to the image processing program in MATLAB which tracks the position of a marker on the manipulator tip. These measurements of the manipulator tip's position over time are transmitted back to the controller. We used a black-and-white checkerboard with 2~mm $\times$ 2~mm squares to estimate the camera calibration factors (mm/pixel) along the $x$ and $y$ axis (Fig.~\ref{fig:setup}). White was selected as the color of the tank's background, and black was selected as the color of the manipulator tip's marker to facilitate contrast-based filtering between the foreground and background. The Camera Calibration Toolbox in MATLAB was initially used to compensate for lens distortion, but since this increased the image processing time by 30\% without significantly improving the image data, the original camera images were subsequently used without compensation. All control algorithms are implemented in MATLAB; the controller output is sent to an Arduino Mega2560, which acts as the physical communication layer between MATLAB and a  PCA9685 MOSFET board. This MOSFET board, with 16 discrete output channels, receives a PWM signal from the controller and applies it (maximum: 3.7\,V) at higher current to the corresponding Joule heater.
 
-\section{Manipulator Modeling}
+\section{\capitalisewords{Manipulator Modeling}}
 
 In this section, the kinematics of the manipulator are derived in order to compute its workspace. A two-dimensional linear state-space model of the manipulator is then defined using black-box system identification methods. 
 
@@ -50,7 +50,7 @@ In this section, the kinematics of the manipulator are derived in order to compu
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{Path_Picture_New_Eleven.pdf}
-    \caption[Schematic and workspace of the manipulator]{Schematic and workspace of the manipulator. (a) The 2-DOF parallel mechanism model with two prismatic joints. (b), (c) Workspaces for extensions with lengths $d=25$\,mm and $d=9$\,mm, respectively, with exemplar elliptical trajectories overlaid in red. Extra loads are added to the longer extension in (b) to test the robustness of the controller in experiment.}
+    \caption[\capitalisewords{Schematic and workspace of the manipulator}]{Schematic and workspace of the manipulator. (a) The 2-DOF parallel mechanism model with two prismatic joints. (b), (c) Workspaces for extensions with lengths $d=25$\,mm and $d=9$\,mm, respectively, with exemplar elliptical trajectories overlaid in red. Extra loads are added to the longer extension in (b) to test the robustness of the controller in experiment.}
     \label{fig:Path}
 \end{figure}
  
@@ -115,11 +115,11 @@ Multiple input-output datasets were gathered across various ranges of amplitudes
 \begin{figure}[h]
 \centering
 {\includegraphics[width=\textwidth]{output-feedback-control_block_final.pdf}}
-\caption[Block diagrams of the proposed output-feedback controllers]{Block diagrams of the proposed output-feedback controllers with state-space representation in the tracking framework~\cite{Skogestad2007}. (a) Observer-based controller. (b) $H_\infty$-optimal controller.} \vspace{-0.5cm}
+\caption[\capitalisewords{Block diagrams of the proposed output-feedback controllers}]{Block diagrams of the proposed output-feedback controllers with state-space representation in the tracking framework~\cite{Skogestad2007}. (a) Observer-based controller. (b) $H_\infty$-optimal controller.} \vspace{-0.5cm}
 \label{fig:control_block}
 \end{figure}
 
-\section{Controller Design} 
+\section{\capitalisewords{Controller Design}} 
 
 It can be shown that the open-loop state-space model~\eqref{eq:2Dmodel}, which has the corresponding transfer function $\vect{G}_o(s)$, is stable, controllable, and observable. In this section, we design two trajectory tracking controllers based on this state-space model, an observer-based output-feedback controller and an $H_{\infty}$-optimal output-feedback controller. Block diagrams of the controllers are illustrated in Fig.~\ref{fig:control_block}. Both controllers are designed to track a reference trajectory $\vect{r}(t) \in \mathbb{R}^{2\times1}$ while attenuating the effects of noise, denoted by $\vect{n}(t)\in \mathbb{R}^{2\times1}$, and external disturbances, denoted by $\vect{d}(t)\in \mathbb{R}^{2\times1}$.
 
@@ -176,13 +176,13 @@ was computed as \vspace{2mm}
 \begin{figure*}[t]
 \centering
     \includegraphics[width=\textwidth]{Figure_Sim_6.pdf}
-    \caption[Simulation results of the controller]{Simulation results. (a) 12-bit PWM waveform applied to the SVAs during training. (b) System output and model fitted from training. (c) The $x$ and $y$ coordinates of the manipulator tip over time for the $H_\infty$-optimal and Observer-based controllers, tracking an ellipse. (d) The $x$-$y$ trajectory of the tip during the simulation in (c).
+    \caption[\capitalisewords{Simulation results of the controller}]{Simulation results. (a) 12-bit PWM waveform applied to the SVAs during training. (b) System output and model fitted from training. (c) The $x$ and $y$ coordinates of the manipulator tip over time for the $H_\infty$-optimal and Observer-based controllers, tracking an ellipse. (d) The $x$-$y$ trajectory of the tip during the simulation in (c).
     (e) $H_\infty$-optimal controller with noise and disturbance. (f) Observer-based controller with noise and disturbance.} \vspace{-0.5cm}
 \label{fig:sim}
 \end{figure*}
 
 %--------------------------------------------------------
-\section{Results and Discussion}
+\section{\capitalisewords{Results and Discussion}}
 % \dma{REVIEW WITH DMAs}
 
 In this section, we study the performance of $H_\infty$ and observer controllers for trajectory tracking. An elliptical reference trajectory is used, defined by
@@ -346,7 +346,7 @@ We can prove that the ${H_{\infty}}$ gain is bounded using the bounded-real lemm
 		\end{equation*}
 
 The proof that statement 1 implies 2 requires the Hamiltonian, and the proof that statement 2 implies 1 uses the global stability conditions of the Lyapunov function~\cite{Boyd1994}.
-\section{Conclusion}
+\section{\capitalisewords{Conclusion}}
 
 In this chapter, we addressed a trajectory-tracking problem for a millimeter-scale 2-DOF manipulator with soft hydrogel-based actuators. We defined a linear state-space model of the manipulator and fit the matrices of this model using input-output measurement black-box identification. This state-space representation enables the implementation of a range of controllers on the manipulator; in this chapter, the performance of an observer-based controller was compared in simulation to that of an $H_{\infty}$-optimal controller in an output-feedback framework with and without noise and disturbance. We showed experimentally that different versions of the manipulator are able to track various reference trajectories, even under load, using the $H_{\infty}$-optimal controller.
 
